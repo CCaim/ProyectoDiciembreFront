@@ -8,6 +8,13 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports:[RouterOutlet],
+  templateUrl:'./home.component.html',
+  styleUrl:'./home.component.scss'
+})
 export class AppComponent {
   title = 'ProyectoDiciembreFront';
 }
