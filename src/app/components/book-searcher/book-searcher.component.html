@@ -1,0 +1,14 @@
+<div class="buscador">
+    <h1 class="title">Busqueda: <span style="font-style: italic;">"{{termino}}"</span></h1>
+    <hr>
+    <div class="" *ngIf="libros.length == 0">
+        <div class=" col-md-12">
+        <div class="alert alert-warning" role="alert">
+            <h1>Oops lo sentimos, no se ha encontrado esa libro</h1>
+        </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 buscador-card">
+        <app-libro-card class="libro-card" *ngFor="let libro of libros; let i = index" [libro]="libro" [index]="libro.id" (libroSelected)="verlibro($event)"></app-libro-card>
+    </div>
+</div>

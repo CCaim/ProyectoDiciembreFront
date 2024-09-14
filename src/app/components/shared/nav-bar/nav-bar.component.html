@@ -1,0 +1,53 @@
+<header class="header">
+    <div class="menu">
+        <div class="logo">
+            <a routerLink="/home"><i class="fa-solid fa-utensils"></i></a>
+            <div class="boton-ham">
+                <a (click)="aparece('boton-ham')"><i class="fa-solid fa-bars"></i></a>
+            </div>
+        </div>
+        <div id="boton-ham">
+            <div class="buscador">
+                <form>
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Buscar..." aria-label="Buscar" (keyup.enter)="buscarlibro(buscarTexto.value)" #buscarTexto>
+                    <button class="btn" type="submit" (click)="buscarLibro(buscarTexto.value)">Buscar</button>
+                </form>
+            </div>
+            <div class="descarga">
+                <nav class="nav">
+                    <a><button class="btn" (click)="libroRamdom()"><i class="fa-solid fa-shuffle"></i></button></a>
+                    <a *ngIf="isLogged"><button class="btn" (click)="crearLibro()" style="min-width: 160px;"><i class="fa-solid fa-fire"></i> CREAR libro</button></a>
+                    <div class="dropdown" *ngIf="isAdmin">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="admin" aria-expanded="false">
+                            <i class="fa-solid fa-screwdriver-wrench"></i> ADMIN
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="admin">
+                            <li><a class="dropdown-item" routerLink="/admin-libros">libroS</a></li>
+                            <li><a class="dropdown-item" routerLink="/admin-ingredientes">INGREDIENTES</a></li>
+                            <li><a class="dropdown-item" routerLink="/admin-usuarios">USUARIOS</a></li>
+                        </ul>
+                    </div>
+                    <div class="iconos">
+                        <label><i class="fa-solid fa-cloud-sun"></i></label>
+                        <label class="switch">
+                            <input type="checkbox" id="inputOscuro" (click)="cambiarTema()" class="input">
+                            <div class="rail">
+                                <span class="circle"></span>
+                            </div>
+                        </label>
+                        <label><i class="fa-solid fa-cloud-moon"></i></label>
+                    </div>
+                    <a *ngIf="!isLogged"><button routerLink="login" class="btn"><i class="fa-solid fa-right-to-bracket"></i> ENTRAR</button></a>
+                    <div class="dropdown" *ngIf="isLogged">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="user" aria-expanded="false">
+                            <i class="fa-solid fa-circle-user"></i> {{username}}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="user">
+                            <li><a class="dropdown-item" (click)="onLogOut()">Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

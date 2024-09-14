@@ -1,0 +1,69 @@
+<div class="padre">
+    <div class="libro-detalle-card">
+        <div class="top-card">
+            <div class="top-card-img">
+                <img [src]="libro.urlImagen">
+            </div>
+            <div class="top-card-content">
+                <h1>{{libro.nombre}}</h1>
+                <div class="subtitulo">
+                    <div class="subtitulo-vote" *ngIf="isLogged">
+                        <button (click)="upvote()" [disabled]="selectedUp"><i class="fa-solid fa-circle-up" ></i></button>
+                        <p>{{libro.valoracion}} <i class="fa-regular fa-star"></i></p>
+                        <button (click)="downvote()" [disabled]="selectedDown"><i class="fa-solid fa-circle-down"></i></button>
+                    </div>
+                    <div>
+                        <p><span *ngIf="!isLogged">{{libro.valoracion}} <i class="fa-regular fa-star"></i></span> 
+                            ● {{libro.tipo}} <i class="fa-solid fa-plate-wheat"></i>
+                            ●  {{libro.origen}} <i class="fa-regular fa-flag"></i> 
+                            ● {{libro.duracion}} <i class="fa-regular fa-clock"></i> 
+                            ● {{libro.dificultad}} <i class="fa-solid fa-gauge-simple-high"></i> 
+                            ● {{libro.fecha| date}} <i class="fa-regular fa-calendar"></i> 
+                            ● {{libro.usuario!.username}} <i class="fa-regular fa-user"></i> 
+                            <span *ngIf="isGluten">● <i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Contiene Gluten</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="down-card">
+            <div class="pasos-card">
+                <h3>Pasos a Seguir:</h3>
+                <div>
+                    <p *ngFor="let paso of pasosFixed; let i = index"><span class="span-bold">Paso {{i+1}}:</span> {{paso}}.</p>
+                </div>
+            </div>
+            <div class="card ingredientes-card">
+                <div class="card-header top-ingre">
+                    Ingredientes:
+                </div>
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item lista-ingre" *ngFor="let ingre of libro.ingredientes">{{ingre.cantidad}} {{ingre.unidadMedida}} de {{ingre.nombre}}</li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="actions-card" *ngIf="isAdmin || isCreadorlibro">
+            <button class="btn btn-secondary" (click)="libroAEditar(libro.id!)" type="button">Editar <i class="fa-solid fa-pencil"></i></button>
+            <button class="btn btn-danger" (click)="eliminarlibro(libro.id!)">Borrar <i class="fa-solid fa-trash-can"></i></button>
+        </div>
+    </div>
+    <div class="comentario-box">
+        <h3>Comentarios: </h3>
+        <div class="new-comen" *ngIf="isLogged">
+            <input placeholder="Añade un comentario..." [(ngModel)]="mensajeNuevo"/>
+            <button class="btn" (click)="addComentario()">Comentar</button>
+        </div>
+        <div class="comen-card" *ngFor="let comentario of libro.comentarios">
+            <div class="usu-comen">
+                <p><i class="fa-solid fa-circle-user"></i></p>
+                <p>{{comentario.usuario.username}}</p>
+            </div>
+            <div class="content-comen"><p>{{comentario.mensaje}}</p></div>
+            <div class="btn-comen">
+                <button class="btn btn-danger" *ngIf="checkAuthor(comentario.usuario.username!)" (click)="eliminarComentario(comentario.id!)"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <h2 style="text-align: center;" *ngIf="libro.comentarios!.length ===0">Aún no hay comentarios</h2>
+    </div>
+</div>

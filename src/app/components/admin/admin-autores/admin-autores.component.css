@@ -1,0 +1,25 @@
+.admin-table{
+    min-height: 800px;
+    background-color: var(--verde-fondo);
+    display: flex;
+    align-items: flex-start;
+    padding: 5%;
+    padding-top: 1%;
+}
+
+.actions-table{
+    display: flex;
+    gap: 15px;
+}
+
+.table > :not(caption) > * > * {
+    background-color: var(--verde-fondo)!important;
+}
+
+.table-hover{
+    background-color: var(--verde-fondo)!important;
+}
+
+th, td{
+    color: var(--negro);
+}

@@ -1,0 +1,19 @@
+<div class="libros">
+    <div class="banner">
+        <div class="banner-content">
+          <div class="banner-text">
+            <h1>¡BIENVENIDO A LA ESPÁTULA!</h1>
+            <p>Aquí encontrarás una deliciosa colección de libros de cocina, tanto clásicas como innovadoras. Además, tienes la oportunidad de compartir tus propias creaciones culinarias con nuestra comunidad.</p>
+          </div>
+          <div class="banner-image">
+            <img src="../../../assets/banner.jpg" alt="Imagen del Banner">
+          </div>
+        </div>
+    </div>      
+    <img class="img-top" style="width: 100%;">
+    <div class="libros-card">
+        <app-libro-card class="libro-card" *ngFor="let libro of libros | paginate: {itemsPerPage: 3, currentPage: pagina} let i = index" [libro]="libro" [index]="libro.id" (libroselected)="verlibro($event)"></app-libro-card>
+    </div>
+        <pagination-controls class="paginacion" (pageChange)="pagina = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    <img class="img-bottom" style="width: 100%;">
+</div>

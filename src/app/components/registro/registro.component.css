@@ -1,0 +1,47 @@
+*{
+    margin: 8px;
+    padding: 8px;
+}
+
+.registro-component{
+    background-color: var(--verde-fondo);
+    margin: 0;
+}
+
+#registro{
+    max-width: 600px!important;
+}
+
+h2{
+    color: var(--negro);
+}
+
+form{
+    border: 1px solid var(--blanco);
+    background-color: var(--verde-tarjeta);
+    display: flex;
+    flex-direction: column;
+}
+.form-icono{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: var(--negro);
+}
+
+    .form-icono i{
+        font-size: 60px;
+    }
+
+.button-registro{
+    width: 400px;
+}
+
+.button-registro button{
+    margin: 0;
+}
+
+.input-style{
+    margin: 0;
+    padding-left: 5px;
+}

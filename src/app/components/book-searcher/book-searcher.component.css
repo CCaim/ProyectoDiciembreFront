@@ -1,0 +1,13 @@
+.buscador{
+    max-width: 100%;
+    min-height: 738px;
+    background-color: var(--blanco-fondo);
+}
+
+.title{
+    color: var(--negro);
+}
+
+.buscador-card{
+    margin: 5%;
+}

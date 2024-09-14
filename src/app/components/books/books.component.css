@@ -1,0 +1,93 @@
+.libros{
+    background-color: var(--blanco-fondo);
+}
+
+.banner {
+    background-color: var(--verde-fondo);
+    padding: 20px;
+  }
+  
+  .banner-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .banner-text {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .banner-text h1 {
+    color: var(--negro);
+    font-size: 101px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .banner-text p {
+    color: var(--negro);
+    margin: 15px;
+    font-size: 23px;
+    text-align: center;
+  }
+  
+  .banner-image{
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .banner-image img{
+    max-width: 90%;
+    border-radius: 10px;
+  }
+  
+
+.recetas-card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+.img-top{
+    content: var(--url-pinchos-top);
+}
+
+.img-bottom{
+    content:var(--url-pinchos-bottom);
+}
+
+.paginacion{
+    display: flex;
+    justify-content: center;
+}
+
+.paginacion ::ng-deep .ngx-pagination .current {
+    background: var(--verde-fondo);
+}
+
+@media all and (max-width:1225px) {
+    .banner-content{
+        flex-direction: column;
+    }
+    .banner-text{
+        max-width: 100%;
+    }
+    .banner-text h1{
+        font-size: 55px;
+    }
+    .banner-text p{
+        font-size: 18px;
+    }
+
+    .recetas-card{
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 5%;
+      align-content: center;
+      gap: 30px;
+    }
+}

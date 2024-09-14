@@ -1,0 +1,14 @@
+<div class="card libro-card">
+    <img [src]="libro?.urlImagen" class="card-img-top img-card" alt="{{libro?.nombre}}">
+    <div class="card-body">
+        <h2 class="card-title">{{libro?.nombre}}</h2>
+        <p class="card-text"><i class="fa-regular fa-clock"></i> {{libro?.duracion}} min. | <i class="fa-regular fa-flag"></i> {{libro?.origen}} | <i class="fa-solid fa-plate-wheat"></i> {{libro?.tipo}} | <i class="fa-regular fa-star"></i> {{libro?.valoracion}} <span *ngIf="isGluten">| <i class="fa-solid fa-wheat-awn-circle-exclamation"></i></span></p>
+        <p class="card-text text-truncated">{{ (libro?.instrucciones!.length>150)? (libro?.instrucciones | slice:0:150)+'...':(libro?.instrucciones) }}</p>
+    </div>
+    <div class="card-footer">
+        <small><i class="fa-solid fa-gauge-simple-high"></i> {{libro?.dificultad}} | {{libro?.fecha | date}} <i class="fa-regular fa-calendar"></i> | <i class="fa-regular fa-user"></i> {{libro?.usuario?.username}}</small>
+    </div>
+    <div class="libro-boton">
+        <button type="button" class="btn btn-outline-primary btn-block" (click)="verlibro()"><i class="fa-solid fa-eye"></i> Ver libro</button>
+    </div>
+</div>

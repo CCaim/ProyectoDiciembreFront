@@ -1,0 +1,10 @@
+.footer{
+    background-color: var(--verde-fondo);
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+
+.texto-negro{
+    color: var(--negro)!important;
+    font-size: 20px;
+}
