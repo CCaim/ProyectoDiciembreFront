@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CloudinaryService } from 'src/app/services/cloudinary.service';
+import { CloudinaryService } from '../../service/cloudinary.service';
 import { NgForm } from '@angular/forms';
 
 import { Usuario, UsuarioService } from '../../service/usuario.service';
