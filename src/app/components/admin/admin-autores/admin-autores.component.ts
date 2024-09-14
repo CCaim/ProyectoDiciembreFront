@@ -4,7 +4,6 @@ import { Autor } from '../../../service/autor.service';
 import { AutorService } from '../../../service/autor.service';
 @Component({
   selector: 'app-admin-autores',
-  standalone: true,
   imports: [],
   templateUrl: './admin-autores.component.html',
   styleUrl: './admin-autores.component.css'
