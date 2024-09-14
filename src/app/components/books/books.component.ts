@@ -1,11 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LibroService, Libro } from 'src/app/services/libro.service';
+import { LibroService, Libro } from '../../service/libro.service';
 
 @Component({
   selector: 'app-books',
-  standalone: true,
   imports: [],
   templateUrl: './books.component.html',
   styleUrl: './books.component.css'

@@ -1,14 +1,13 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
-import { Libro, LibroService } from 'src/app/services/libro.service';
+import { Libro, LibroService } from '../../../service/libro.service';
 
 @Component({
   selector: 'app-book-card',
-  standalone: true,
   imports: [],
   templateUrl: './book-card.component.html',
   styleUrl: './book-card.component.css'
 })
-export class BookCardComponent implements OnInit{
+export class BookCardComponent{
 
   @Input() libro: Libro | undefined;
   @Input() index: number | undefined;
@@ -17,11 +16,6 @@ export class BookCardComponent implements OnInit{
 
   constructor(private _libService: LibroService){
     this.libroSelected = new EventEmitter();
-  }
-
-  ngOnInit(): void {
-    this.isGluten = this._libService.tieneGluten(this.libro!);
-    console.log(this.isGluten);
   }
 
   verLibro(){

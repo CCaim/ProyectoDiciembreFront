@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Libro, LibroService } from 'src/app/services/libro.service';
+import { Libro, LibroService } from '../../service/libro.service';
 
 @Component({
   selector: 'app-book-searcher',
-  standalone: true,
   imports: [],
   templateUrl: './book-searcher.component.html',
   styleUrl: './book-searcher.component.css'

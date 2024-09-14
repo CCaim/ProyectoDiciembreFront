@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { CloudinaryService } from 'src/app/services/cloudinary.service';
-import { Ingrediente, IngredienteService } from 'src/app/services/ingrediente.service';
-import { IngredienteConCantidad, Receta, RecetaService } from 'src/app/services/receta.service';
-import { TokenService } from 'src/app/services/token.service';
+import { CloudinaryService } from '../../service/cloudinary.service';
+import { TokenService } from '../../service/token.service';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-book-edit',
-  standalone: true,
   imports: [],
   templateUrl: './book-edit.component.html',
   styleUrl: './book-edit.component.css'

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Libro, LibroService } from 'src/app/service/libro.service';
+import { LibroService } from '../../../service/libro.service';
+import { Libro } from '../../../service/libro.service';
 
 
 @Component({
   selector: 'app-admin-libros',
-  standalone: true,
   imports: [],
   templateUrl: './admin-libros.component.html',
   styleUrl: './admin-libros.component.css'

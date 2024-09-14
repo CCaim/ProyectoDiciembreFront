@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CloudinaryService } from 'src/app/services/cloudinary.service';
 import { NgForm } from '@angular/forms';
-import { IngredienteConCantidad, Receta, RecetaService } from 'src/app/services/receta.service';
-import { Ingrediente, IngredienteService } from 'src/app/services/ingrediente.service';
-import { Usuario, UsuarioService } from 'src/app/services/usuario.service';
-import { TokenService } from 'src/app/services/token.service';
+
+import { Usuario, UsuarioService } from '../../service/usuario.service';
+import { TokenService } from '../../service/token.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-book-form',
-  standalone: true,
   imports: [],
   templateUrl: './book-form.component.html',
   styleUrl: './book-form.component.css'
