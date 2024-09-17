@@ -2,5 +2,5 @@ Cosas pendientes:
 
 escribir el footercomponent.ts si hace falta
 
-Crear Genero Service
+arreglar el error de usuarios en bookform y bookedit
 
