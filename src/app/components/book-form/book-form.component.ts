@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Usuario, UsuarioService } from '../../service/usuario.service';
 import { TokenService } from '../../service/token.service';
 import { Router } from '@angular/router';
+import { Libro, LibroService } from '../../service/libro.service';
 @Component({
   selector: 'app-book-form',
   imports: [],
@@ -14,30 +15,27 @@ import { Router } from '@angular/router';
 export class BookFormComponent implements OnInit{
   
   imagenes: File[]=[];
-  recetaNew: Receta = {};
-  ingreAll: Ingrediente[]=[];
-  ingreConCantidadArray: IngredienteConCantidad[]=[];
+  libroNew: Libro = {};
+  generoAll: Genero[]=[];
   ingreID:number=0;
-  ingreCantidad:number=0;
-  ingreMedida:string="";
   ingreVacio:boolean=false;
   imagenSubida:boolean=false;
 
   constructor(private _cloudinaryService:CloudinaryService, private _tokenService:TokenService, private _router:Router,
-  private _ingreService: IngredienteService, private _usuService: UsuarioService, private _receService: RecetaService){
+  private _generoService: GeneroService, private _usuService: UsuarioService, private _libService: LibroService){
   }
 
   ngOnInit(): void {
-    this._ingreService.getIngredientes().subscribe(
-      (respuesta: Ingrediente[]) => {
-        this.ingreAll = respuesta;
+    this._generoService.getGeneros().subscribe(
+      (respuesta: Genero[]) => {
+        this.generoAll = respuesta;
       }
     );
     let username = this._tokenService.getUserName();
     this._usuService.getUsuarioByUsername(username!).subscribe(
       (respuesta: Usuario) => {
-        this.recetaNew.usuario = respuesta;
-        console.log(this.recetaNew);
+        this.libroNew.usuario = respuesta;
+        console.log(this.libroNew);
       }
     );
   }
@@ -56,12 +54,12 @@ export class BookFormComponent implements OnInit{
     if(this.imagenes[0]){
       const data = new FormData();
       data.append('file', this.imagenes[0]);
-      data.append('upload_preset', 'angular_espatula');
+      data.append('upload_preset', 'angular_CasaLibro');
       data.append('cloud_name', 'de411te3t');
       this._cloudinaryService.cargarImagen(data)
       .then(response => response.json())
       .then(data => {
-          this.recetaNew.urlImagen = data.secure_url;
+          this.libroNew.urlImagen = data.secure_url;
           this.imagenSubida=true;
           console.log(data.secure_url)
         });
@@ -70,38 +68,15 @@ export class BookFormComponent implements OnInit{
     }
   }
 
-  nuevoIngreConCantidad(form: NgForm) {
-    if (form.valid) {
-      let ingreConCantidadNew: IngredienteConCantidad = {};
-      ingreConCantidadNew.unidadMedida=this.ingreMedida;
-      ingreConCantidadNew.cantidad=this.ingreCantidad;
-      this._ingreService.getIngrediente(this.ingreID).subscribe(
-        (respuesta: Ingrediente) => {
-          ingreConCantidadNew.ingrediente = respuesta;
-          ingreConCantidadNew.nombre = respuesta.nombre;
-        }
-      );
-      console.log(ingreConCantidadNew)
-      this.ingreConCantidadArray.push(ingreConCantidadNew);
-      console.log(this.ingreConCantidadArray)
-      this.ingreVacio=false;
-    }else{
-      this.ingreVacio=true;
-    }
-  }
-
-  eliminarIngreConCantidad(event:any) {
-    this.ingreConCantidadArray.splice(this.ingreConCantidadArray.indexOf(event), 1);
-  }
 
   goBack(): void {
     this._router.navigateByUrl('../');
   } 
   
-  guardarReceta(form: NgForm){
-    if (form.valid && this.ingreConCantidadArray.length > 0 && this.imagenSubida) {
-      this.recetaNew.ingredientes = this.ingreConCantidadArray;
-      this._receService.createReceta(this.recetaNew).subscribe();
+  guardarLibro(form: NgForm){
+    if (form.valid && this.imagenSubida) {
+      this.libroNew.genero;
+      this._libService.createLibro(this.libroNew).subscribe();
       this._router.navigate(['/home']);
     }else{
 
