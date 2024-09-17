@@ -6,6 +6,7 @@ import { Usuario, UsuarioService } from '../../service/usuario.service';
 import { TokenService } from '../../service/token.service';
 import { Router } from '@angular/router';
 import { Libro, LibroService } from '../../service/libro.service';
+import { Genero, GeneroService } from '../../service/genero.service';
 @Component({
   selector: 'app-book-form',
   imports: [],

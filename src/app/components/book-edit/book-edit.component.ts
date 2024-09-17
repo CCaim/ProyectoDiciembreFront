@@ -6,6 +6,7 @@ import { TokenService } from '../../service/token.service';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Libro, LibroService } from '../../service/libro.service';
+import { Genero, GeneroService } from '../../service/genero.service';
 @Component({
   selector: 'app-book-edit',
   imports: [],
@@ -32,7 +33,7 @@ export class BookEditComponent {
     });
 
     this._libService.getLibro(this.id).subscribe(
-      (respuesta: Receta) => {
+      (respuesta: Libro) => {
         this.libroEdit = respuesta;
         this.comprobacionUsuario(respuesta.usuario?.username!);
         this.downloadImageAsFile(this.libroEdit.urlImagen!).subscribe(file => {
