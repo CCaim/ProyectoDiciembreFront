@@ -1,8 +1,6 @@
-Cosas pendientes: 
-
-reescribir todo book-edit.components.ts
-
-reescribir todo book-form.component.ts
+Cosas pendientes:
 
 escribir el footercomponent.ts si hace falta
+
+Crear Genero Service
 
