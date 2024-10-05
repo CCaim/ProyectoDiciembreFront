@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Autor } from './autor.service';
 import { Comentario } from './comentario.service';
+import { Usuario } from './usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -61,5 +62,7 @@ export interface Libro {
   calificacion?: number;
   urlImagen?: string;
   comentarios?: Comentario[];
+  usuario?: Usuario;
+  
 }
 

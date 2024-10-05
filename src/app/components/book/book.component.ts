@@ -34,8 +34,7 @@ export class BookComponent implements OnInit{
       this._libService.getLibro(params['id']).subscribe(
         (respuesta)=>{
           this.libro = respuesta;
-          this.pasosFixed = this.libro.instrucciones!.split(".");
-          this.isGluten = this._libService.tieneGluten(this.libro!);
+          //this.pasosFixed = this.libro.instrucciones!.split(".");
           console.log(this.isGluten);
           if(this._tokenService.getUserName()===respuesta.usuario?.username)
             this.isCreadorLibro=true;
@@ -65,16 +64,16 @@ export class BookComponent implements OnInit{
     if(this.selectedDown){
       this.selectedUp=true;
       this.selectedDown=false;
-      this.libro.valoracion=this.libro.valoracion!+2;
-      this._libService.putlibro(this.libro.id!, this.libro).subscribe(
+      //this.libro.valoracion=this.libro.valoracion!+2;
+      this._libService.putLibro(this.libro.id!, this.libro).subscribe(
         (response)=>{
           console.log(response);
         }
       );
     }else{
       this.selectedUp=true;
-      this.libro.valoracion!++;
-      this._libService.putlibro(this.libro.id!, this.libro).subscribe(
+      //this.libro.valoracion!++;
+      this._libService.putLibro(this.libro.id!, this.libro).subscribe(
         (response)=>{
           console.log(response);
         }
@@ -87,16 +86,16 @@ export class BookComponent implements OnInit{
     if(this.selectedUp){
       this.selectedUp=false;
       this.selectedDown=true;
-      this.libro.valoracion=this.libro.valoracion!-2;
-      this._libService.putlibro(this.libro.id!, this.libro).subscribe(
+      //this.libro.valoracion=this.libro.valoracion!-2;
+      this._libService.putLibro(this.libro.id!, this.libro).subscribe(
         (response)=>{
           console.log(response);
         }
       );
     }else{
       this.selectedDown=true;
-      this.libro.valoracion!--;
-      this._libService.putlibro(this.libro.id!, this.libro).subscribe(
+    //  this.libro.valoracion!--;
+      this._libService.putLibro(this.libro.id!, this.libro).subscribe(
         (response)=>{
           console.log(response);
         }
@@ -109,7 +108,7 @@ export class BookComponent implements OnInit{
   }
 
   eliminarlibro(id:number){
-    this._libService.removelibro(id).subscribe(
+    this._libService.removeLibro(id).subscribe(
       (response)=>{
         console.log(response);
         this._router.navigate(['/home']);
@@ -120,7 +119,7 @@ export class BookComponent implements OnInit{
   addComentario(){
     if(this.mensajeNuevo){
       this.newComen.mensaje = this.mensajeNuevo;
-      this.newComen.idlibro = this.libro.id;
+    //  this.newComen.idlibro = this.libro.id;
       this.newComen.username = this._tokenService.getUserName()!;
       console.log(this.newComen);
       
