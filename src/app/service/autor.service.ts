@@ -18,7 +18,7 @@ export class AutorService{
         return this._http.get<Autor[]>(`${this.apiAutorUrl}/getAll`);
     }
 
-    getAutores(id: number):Observable<Autor[]> {
+    getAutoresPorId(id: number):Observable<Autor[]> {
 
         return this._http.get<Autor[]>(`${this.apiAutorUrl}/${id}`);
     }
@@ -31,9 +31,9 @@ export class AutorService{
         return this._http.delete<void>(`${this.apiAutorUrl}/remove/${id}`)
     }
 
-    putAutor(id:number, updateAutor:Autor):Observable<Autor>{
-        return this._http.delete<void>(`${this.apiAutorUrl}/update/${id}`, updateAutor)
-    }
+    // putAutor(id:number, updateAutor:Autor):Observable<Autor>{
+    //     return this._http.delete<void>(`${this.apiAutorUrl}/update/${id}`, updateAutor)
+    // }
 
     buscarAutores(busqueda:string, AutoresAct:Autor[]):Usuario[]{
         let AutoresAux: Autor[]=[];
