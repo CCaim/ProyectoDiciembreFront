@@ -2,11 +2,6 @@ Cosas pendientes:
 
 escribir el footercomponent.ts si hace falta
 
-arreglar el error de usuarios en bookform y bookedit
+cambiar las estructura de tienda de libros a red social de escritura, autores se quitan, se aaden los generos y se reestructuran las clases libro para usar ese cambio
 
-una vez funcione el back probar que no fallan las clases que antes lo hacian
-
-si falla reestructurar lo que al principio modifique (cuando esto iba a ser una tienda y no un foro)
-
-desoliegue inicial
-
+arrreglar error de despliegue
