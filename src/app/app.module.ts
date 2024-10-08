@@ -14,7 +14,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 
 import { AdminUsuariosComponent } from './components/admin/admin-usuarios/admin-usuarios.component';
-import { AdminAutoresComponent } from './components/admin/admin-autores/admin-autores.component'; 
+
 import { AdminLibrosComponent } from './components/admin/admin-libros/admin-libros.component';
 
 import { BookComponent } from './components/book/book.component';
@@ -51,9 +51,7 @@ import { BookCardComponent } from './components/shared/book-card/book-card.compo
     BookFormComponent,
     BookEditComponent,
     BookComponent,
-    AdminLibrosComponent,
-    AdminAutoresComponent
-   
+    AdminLibrosComponent
   ],
   
 })
