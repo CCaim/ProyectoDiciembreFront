@@ -2,75 +2,49 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LibroService } from '../../../service/libro.service';
 import { Libro } from '../../../service/libro.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-libros',
-  imports: [],
   templateUrl: './admin-libros.component.html',
-  styleUrl: './admin-libros.component.css'
+  styleUrls: ['./admin-libros.component.css'] // Corregido a 'styleUrls'
 })
 export class AdminLibrosComponent {
-//   libros: Libro[] = []
-//   libroNew: Libro = {
-//     privado: false
-//   };
-//   libroAEditar:Libro={};
 
-//   costructor(private _libService:LibroService){
+  libros: Libro[] = [];
+ 
+  constructor(private _libroService:LibroService, private _router: Router){
 
-//   }
-//   ngOnInit(): void {
-//     this.actualizarTabla();
-//   }
-
-//   actualizarTabla(){
-//     this._libService.getAlgo().subscribe(
-//       (response)=>{
-//         this.libros=response;
-//       }
-//     );
-//   }
-
-//   buscarLibroAEditar(id:number){
-//     let libroEditar = this.libro.find(objeto => objeto.id === id);
-//     if(libroEditar){
-//       this.libroAEditar = libroEditar;
-//     }
-//   }
-//   saveLibro(form:NgForm){
-//     if (formatCurrency.valid){
-//       console.log(this.libroNew);
-//       this._libService.createLibro(this.libroNew).subscribe(
-//         (response)=> {
-//           console.log(response);
-//           window.location.reload();
-//         }
-//       );
-//     }else{
-//       console.log('problema');
-//     }
+  }
   
-//   }
-//   editarLibro(form: NgForm){
-//     if (form.valid) {
-//       console.log(this.libroAEditar);
-//       this._libService.putLibro(this.libroAEditar.id!, this.libroAEditar).subscribe(
-//         (response)=>{
-//           console.log(response);
-//           window.location.reload();
-//         }
-//       );
-//     }else{
-//       console.log('problemitas')
-//     }
-//   }
-//   eliminarLibro(id:number){
-//     this._libService.removeLibro(id).subscribe(
-//       (response)=>{
-//         console.log(response);
-//         this.actualizarTabla();
-//       }
-//     );
-//   }
+  ngOnInit(): void {
+    this.actualizarTabla();
+  }
+
+  actualizarTabla(){
+    this._libroService.getLibros().subscribe(
+      (response)=>{
+        this.libros= response;
+      }
+    );
+  }
+
+  verLibro(id:number){
+  this._router.navigate(['/libro', id]);
+
+  }
+
+  libroAEditar(id:number){
+    this._router.navigate(['/editLibro', id]);
+  }
+
+  eliminarLibro(id: number){
+    this._libroService.removeLibro(id).subscribe(
+      (response)=>{
+        console.log(response);
+        this.actualizarTabla();
+      }
+    );
+  }
+
 }

@@ -14,7 +14,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 
 import { AdminUsuariosComponent } from './components/admin/admin-usuarios/admin-usuarios.component';
-
+import { AdminGenerosComponent } from './components/admin/admin-generos/admin-generos.component';
 import { AdminLibrosComponent } from './components/admin/admin-libros/admin-libros.component';
 
 import { BookComponent } from './components/book/book.component';
@@ -25,6 +25,7 @@ import { BooksComponent } from './components/books/books.component';
 import { BookCardComponent } from './components/shared/book-card/book-card.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,17 +34,6 @@ import { BookCardComponent } from './components/shared/book-card/book-card.compo
     RegistroComponent,
     FooterComponent,
     AdminUsuariosComponent,
-    
-    
-   
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
-    AppComponent,
     FooterComponent,
     BooksComponent,
     BookCardComponent,
@@ -51,7 +41,17 @@ import { BookCardComponent } from './components/shared/book-card/book-card.compo
     BookFormComponent,
     BookEditComponent,
     BookComponent,
-    AdminLibrosComponent
+    AdminLibrosComponent,
+    AdminGenerosComponent
+
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
+    
   ],
   
 })

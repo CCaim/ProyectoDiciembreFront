@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { GuardService as guard } from './service/guard.service';
 import { AdminLibrosComponent } from './components/admin/admin-libros/admin-libros.component';
-//import { AdminIngredientesComponent } from './components/admin/admin-ingredientes/admin-ingredientes.component';
+import { AdminGenerosComponent } from './components/admin/admin-generos/admin-generos.component';
 import { AdminUsuariosComponent } from './components/admin/admin-usuarios/admin-usuarios.component';
 import { BookEditComponent } from './components/book-edit/book-edit.component';
 import { BookSearcherComponent } from './components/book-searcher/book-searcher.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"registro", component:RegistroComponent},
   {path:"admin-libros", component:AdminLibrosComponent, canActivate: [guard], data: { expectedRol: ['admin']}},
-  //{path:"admin-ingredientes", component: AdminIngredientesComponent, canActivate: [guard], data: { expectedRol: ['admin']}},
+  {path:"admin-generos", component: AdminGenerosComponent, canActivate: [guard], data: { expectedRol: ['admin']}},
   {path:"admin-usuarios", component:AdminUsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin']}},
   {path:"search/:busqueda", component:BookSearcherComponent},
   {path:"**", pathMatch:"full", redirectTo:"home"}
