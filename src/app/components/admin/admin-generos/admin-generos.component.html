@@ -1,1 +1,81 @@
-<p>admin-generos works!</p>
+<div class="admin-table">
+    <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#generoNewModal">Añadir Género <i class="fa-solid fa-plus"></i></button>
+   <table class="table table-hover">
+       <thead>
+           <tr>
+             <th scope="col">ID</th>
+             <th scope="col">NOMBRE DEL GÉNERO</th>
+             <th scope="col">DESCRIPCIÓN</th>
+             <th scope="col">ACCIONES</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let genero of generos">
+             <td>{{genero.id}}</td>
+             <td>{{genero.nombre}}</td>
+             <td>{{genero.descripcion}}</td>
+             <td class="actions-table">
+               <button class="btn btn-secondary" (click)="buscarGeneroAEditar(genero.id!)" type="button" data-bs-toggle="modal" data-bs-target="#generoModal"><i class="fa-solid fa-pencil"></i></button>
+               <button class="btn btn-danger" (click)="eliminarGenero(genero.id!)"><i class="fa-solid fa-trash-can"></i></button>
+             </td>
+           </tr>
+         </tbody>
+   </table>
+   <h1 *ngIf="generos.length===0">No hay géneros que administrar</h1>
+ </div>
+
+ <div class="modal fade" id="generoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="generoModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Género</h1>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <form #fGenero="ngForm" (ngSubmit)="editarGenero(fGenero)">
+       <div class="modal-body">
+         
+           <div class="mb-3">
+             <label for="nombre-edit" class="col-form-label">Nombre:</label>
+             <input type="text" class="form-control" id="nombre-edit" name="nombre-edit" [(ngModel)]="generoAEditar.nombre" required>
+           </div>
+           <div class="mb-3">
+             <label for="descripcion-edit" class="col-form-label">Descripción:</label>
+             <textarea class="form-control" id="descripcion-edit" name="descripcion-edit" [(ngModel)]="generoAEditar.descripcion" required></textarea>
+           </div>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+         <button type="submit" class="btn btn-primary">Actualizar Género</button>
+       </div>
+     </form>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="generoNewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="generoNewModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h1 class="modal-title fs-5" id="exampleModalLabel">Crear Género</h1>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <form #fGeneroNew="ngForm" (ngSubmit)="saveGenero(fGeneroNew)">
+         <div class="modal-body">
+           
+             <div class="mb-3">
+               <label for="nombre-new" class="col-form-label">Nombre:</label>
+               <input type="text" class="form-control" id="nombre-new" name="nombre-new" [(ngModel)]="generoNew.nombre" required>
+             </div>
+             <div class="mb-3">
+               <label for="descripcion-new" class="col-form-label">Descripción:</label>
+               <textarea class="form-control" id="descripcion-new" name="descripcion-new" [(ngModel)]="generoNew.descripcion" required></textarea>
+             </div>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+           <button type="submit" class="btn btn-primary">Crear Género</button>
+         </div>
+       </form>
+       </div>
+     </div>
+   </div>
