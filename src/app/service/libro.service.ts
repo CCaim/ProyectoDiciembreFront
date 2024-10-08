@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Autor } from './autor.service';
+import { Genero } from './genero.service';
 import { Comentario } from './comentario.service';
 import { Usuario } from './usuario.service';
 
@@ -55,9 +55,8 @@ export class LibroService {
 export interface Libro {
   id?: number;
   titulo?: string;
-  autor?: Autor;
   fechaPublicacion?: string;
-  genero?: string;
+  genero?: Genero;
   descripcion?: string;
   calificacion?: number;
   urlImagen?: string;
