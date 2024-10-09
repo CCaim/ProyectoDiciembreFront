@@ -113,7 +113,7 @@ export class BookEditComponent {
     this._router.navigateByUrl('../');
   }  
 
-  guardarReceta(form: NgForm){
+  guardarLibro(form: NgForm){
     if (form.valid && this.imagenSubida) {
 
       this._libService.putLibro(this.id, this.libroEdit).subscribe(

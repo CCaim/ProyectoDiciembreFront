@@ -37,31 +37,29 @@ export class LibroService {
   buscarLibros(busqueda: string, librosAct: Libro[]): Libro[] {
     let librosAux: Libro[] = [];
     busqueda = busqueda.toLowerCase();
-    for (let i = 0; i < librosAct.length; i++) {
-      let libro = librosAct[i];
-      let titulo = libro.titulo!.toLowerCase();
-      if (titulo.indexOf(busqueda) >= 0) {
+    for (let libro of librosAct) {
+      let nombre = libro.nombre!.toLowerCase();
+      if (nombre.indexOf(busqueda) >= 0) {
         librosAux.push(libro);
       }
     }
     return librosAux;
   }
 
-  tieneCalificacionAlta(libro: Libro, umbral: number): boolean {
-    return libro.calificacion! >= umbral;
-  }
+  // tieneCalificacionAlta(libro: Libro, umbral: number): boolean {
+  //   return libro.valoracion >= umbral;
+  // }
 }
 
 export interface Libro {
   id?: number;
-  titulo?: string;
-  fechaPublicacion?: string;
-  genero?: Genero;
-  descripcion?: string;
-  calificacion?: number;
+  nombre?: string; 
+  valoracion?: number; 
+  fecha?: Date; 
+  tipo?: string;
   urlImagen?: string;
   comentarios?: Comentario[];
   usuario?: Usuario;
-  
+  texto?: string;
+  genero?: Genero[];
 }
-

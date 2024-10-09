@@ -4,96 +4,48 @@
     <form #fRece="ngForm" class="form-estilo" (ngSubmit)="guardarLibro(fRece)">
         <div class="left-form">
             <div class="form-group row group-libro">
-                <label class="label-libro" for="nombre">Nombre de la libro:</label>
-                <input type="text" class="form-control input-libro-largo" id="nombre" name="nombre" [(ngModel)]="libroEdit.nombre" required/>
-                
+                <label class="label-libro" for="nombre">Nombre del libro:</label>
+                <input type="text" class="form-control input-libro-largo" id="nombre" name="nombre" [(ngModel)]="libroEdit.nombre" required />
             </div>
+
             <div class="form-group row group-libro">
-                <label class="label-libro" for="duracion">Duración (minutos):</label>
-                <input class="form-control" style="flex-basis: 10%; min-width: 60px;" type="number" min="0" step="5" placeholder="5" id="duracion" name="duracion" [(ngModel)]="libroEdit.duracion" required />
-                <label class="label-libro">(minutos)</label>
+                <label class="label-libro" for="valoracion">Valoración (0 - 5):</label>
+                <input class="form-control" type="number" min="0" max="5" step="0.1" placeholder="5" id="valoracion" name="valoracion" [(ngModel)]="libroEdit.valoracion" required />
+                <label class="label-libro">(0 a 5 estrellas)</label>
             </div>
+
             <div class="form-group row group-libro">
-                <label class="label-libro" for="dificultad">Dificultad: </label>
-                <select class="form-select input-libro" id="dificultad" name="dificultad" [(ngModel)]="libroEdit.dificultad" required>
-                    <option value="" disabled selected>--Selecciona una dificultad--</option>
-                    <option value="Fácil">Fácil</option>
-                    <option value="Media">Media</option>
-                    <option value="Difícil">Difícil</option>
-                </select>
+                <label class="label-libro" for="fecha">Fecha de publicación:</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="libroEdit.fecha" required />
             </div>
+
             <div class="form-group row group-libro">
                 <label class="label-libro" for="tipo">Tipo:</label>
                 <select class="form-select input-libro" id="tipo" name="tipo" [(ngModel)]="libroEdit.tipo" required>
-                    <option value="" disabled selected>--Selecciona un tipo--</option>
-                    <option value="Desayuno">Desayuno</option>
-                    <option value="Almuerzo">Almuerzo</option>
-                    <option value="Cena">Cena</option>
-                    <option value="Aperitivo">Aperitivo</option>
-                    <option value="Postre">Postre</option>
-                    <option value="Comida Rápida">Comida Rápida</option>
-                    <option value="Bebida">Bebida</option>
+                    <option value="" disabled selected>--Selecciona una opción--</option>
+                    <option value="Adulto">Adulto</option>
+                    <option value="Infantil">Infantil</option>
                 </select>
             </div>
-            <div class="form-group row group-libro">
-                <label class="label-libro" for="origen">Origen:</label>
-                <input class="form-control input-libro" type="text" placeholder="España" id="origen" name="origen" [(ngModel)]="libroEdit.origen" required/>
-            </div>
+
             <div class="form-group row">
-                <label style="font-weight: bold; margin-bottom: 15px;" for="pasos">Pasos a seguir:</label>
-                <textarea class="form-control input-pasos" style="resize: none;" type="text" placeholder="Describe los pasos a seguir para la realización de la libro. (Hazlo usando frases concisas)" id="pasos" name="pasos" [(ngModel)]="libroEdit.instrucciones" required ></textarea>
+                <label style="font-weight: bold; margin-bottom: 15px;" for="descripcion">Descripción:</label>
+                <textarea class="form-control input-pasos" style="resize: none;" id="descripcion" name="descripcion" [(ngModel)]="libroEdit.texto" required placeholder="Describe brevemente el contenido del libro."></textarea>
             </div>
         </div>
+
         <div class="right-form">
-            <div class="form-group row">
-                <label style="font-weight: bold; margin-bottom: 15px;">Ingredientes con cantidad (Ingrediente, Cantidad y Unidad de medida):</label>
-                <form #f="ngForm" class="form-ingre" (ngSubmit)="nuevoIngreConCantidad(f)" novalidate>
-                    <div class="form-group" style="flex-basis: 30%; min-width: 160px;">
-                        <select class="form-select" id="ingreID" name="ingreID" [(ngModel)]="ingreID" required>
-                            <option value="" disabled selected>--Selecciona un ingrediente--</option>
-                            <option *ngFor=" let ingreSelect of ingreAll" value="{{ingreSelect.id}}">{{ingreSelect.nombre}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group" style="flex-basis: 13%; min-width: 60px;">
-                        <input type="number" min="0" name="cantidad" class="form-control" id="cantidad" required [(ngModel)]="ingreCantidad">
-                    </div>
-                    <div class="form-group" style="flex-basis: 20%; min-width: 120px;">
-                        <select class="form-select" id="medida" name="medida" [(ngModel)]="ingreMedida" required>
-                            <option value="ml">ml</option>
-                            <option value="oz">oz</option>
-                            <option value="L">Litros</option>
-                            <option value="g">gramos</option>
-                            <option value="Kg">Kg</option>
-                            <option value="Unidades" selected>Unidades</option>
-                        </select>
-                    </div>
-                    <div class="form-group button-login">
-                        <button class="btn btn-secondary">Añadir</button>
-                    </div>
-                </form>
-                <p *ngIf="ingreVacio">Error! Introduce completamente el ingrediente que quieres añadir</p>
-                <div class="vacio">
-                    <div class="card ingredientes-card" *ngIf="ingreConCantidadArray.length > 0">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item lista-ingre" *ngFor=" let ingreCanti of ingreConCantidadArray">
-                                <p>{{ingreCanti.nombre}} {{ingreCanti.cantidad}} {{ingreCanti.unidadMedida}}</p>
-                                <button class="btn btn-danger" (click)="eliminarIngreConCantidad(ingreCanti)"><i class="fa-solid fa-trash-can"></i></button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <ngx-dropzone (change)="onSelect($event)">
                 <ngx-dropzone-label>Arrastra tu imagen aquí!</ngx-dropzone-label>
                 <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of imagenes" [file]="f" [removable]="true" (removed)="onRemove(f)">
                     <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                 </ngx-dropzone-image-preview>
             </ngx-dropzone>
-        <div class="actions-libro">
-            <button class="btn btn-danger" (click)="goBack()">Cancelar</button>
-            <button class="btn btn-primary" (click)="subirImagen()">Subir Imagen</button>
-            <button type="submit" class="btn btn-success" [disabled]="!imagenSubida">ACTUALIZAR LIBRO</button>
-        </div>
+            <div class="actions-libro">
+                <button class="btn btn-danger" (click)="goBack()">Cancelar</button>
+                <button class="btn btn-primary" (click)="subirImagen()">Subir Imagen</button>
+                <button type="submit" class="btn btn-success" [disabled]="!imagenSubida">ACTUALIZAR LIBRO</button>
+            </div>
         </div>
     </form>
 </div>
