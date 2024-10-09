@@ -1,7 +1,7 @@
 Cosas pendientes:
 
-cambiar las estructura de tienda de libros a red social de escritura, autores se quitan, se aaden los generos y se reestructuran las clases libro para usar ese cambio
+cambiar TODAS las clases que se refieren a libro SOBRE TODO EL HTML estan montadas como la app de ejemplo de recetas y es un puto desatre me cago en tus muertos carlos del pasado
 
 arrreglar error de despliegue
 
-comprobar si alguna clase mas estaba comentada o da error
+
