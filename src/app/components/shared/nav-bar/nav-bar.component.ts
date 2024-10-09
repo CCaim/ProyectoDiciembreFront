@@ -6,7 +6,6 @@ import { Libro } from '../../../service/libro.service';
 
 @Component({
   selector: 'app-nav-bar',
-  imports: [],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })

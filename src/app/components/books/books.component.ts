@@ -5,7 +5,6 @@ import { LibroService, Libro } from '../../service/libro.service';
 
 @Component({
   selector: 'app-books',
-  imports: [],
   templateUrl: './books.component.html',
   styleUrl: './books.component.css'
 })

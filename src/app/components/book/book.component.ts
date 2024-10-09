@@ -6,7 +6,6 @@ import { TokenService } from '../../service/token.service';
 
 @Component({
   selector: 'app-book',
-  imports: [],
   templateUrl: './book.component.html',
   styleUrl: './book.component.css'
 })

@@ -4,7 +4,6 @@ import { Libro, LibroService } from '../../service/libro.service';
 
 @Component({
   selector: 'app-book-searcher',
-  imports: [],
   templateUrl: './book-searcher.component.html',
   styleUrl: './book-searcher.component.css'
 })

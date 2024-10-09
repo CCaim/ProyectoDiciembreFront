@@ -3,7 +3,6 @@ import { Libro, LibroService } from '../../../service/libro.service';
 
 @Component({
   selector: 'app-book-card',
-  imports: [],
   templateUrl: './book-card.component.html',
   styleUrl: './book-card.component.css'
 })

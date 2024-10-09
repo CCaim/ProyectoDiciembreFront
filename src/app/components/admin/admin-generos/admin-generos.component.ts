@@ -4,8 +4,6 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-generos',
-  standalone: true,
-  imports: [],
   templateUrl: './admin-generos.component.html',
   styleUrl: './admin-generos.component.css'
 })

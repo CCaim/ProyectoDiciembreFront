@@ -9,7 +9,6 @@ import { Libro, LibroService } from '../../service/libro.service';
 import { Genero, GeneroService } from '../../service/genero.service';
 @Component({
   selector: 'app-book-form',
-  imports: [],
   templateUrl: './book-form.component.html',
   styleUrl: './book-form.component.css'
 })
