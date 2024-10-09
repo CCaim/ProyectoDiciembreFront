@@ -23,7 +23,6 @@ export class BookComponent implements OnInit{
   isCreadorComentario: boolean = false;
   selectedUp: boolean = false;
   selectedDown: boolean = false;
-  isGluten:boolean=false;
 
   constructor(private _tokenService: TokenService, private _activatedRoute: ActivatedRoute, private _router: Router,
     private _libService:LibroService, private _comenService:ComentarioService){}
@@ -34,7 +33,6 @@ export class BookComponent implements OnInit{
         (respuesta)=>{
           this.libro = respuesta;
           //this.pasosFixed = this.libro.instrucciones!.split(".");
-          console.log(this.isGluten);
           if(this._tokenService.getUserName()===respuesta.usuario?.username)
             this.isCreadorLibro=true;
           console.log(respuesta);

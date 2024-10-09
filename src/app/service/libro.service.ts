@@ -61,5 +61,12 @@ export interface Libro {
   comentarios?: Comentario[];
   usuario?: Usuario;
   texto?: string;
-  genero?: Genero[];
+  genero?: GeneroConCantidad[];
+}
+
+export interface GeneroConCantidad{
+  id?: number;
+  genero?: Genero;
+  cantidad?: number;
+  nombre?: string;
 }
