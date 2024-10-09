@@ -9,13 +9,13 @@
         <div id="boton-ham">
             <div class="buscador">
                 <form>
-                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Buscar..." aria-label="Buscar" (keyup.enter)="buscarlibro(buscarTexto.value)" #buscarTexto>
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Buscar..." aria-label="Buscar" (keyup.enter)="buscarLibro(buscarTexto.value)" #buscarTexto>
                     <button class="btn" type="submit" (click)="buscarLibro(buscarTexto.value)">Buscar</button>
                 </form>
             </div>
             <div class="descarga">
                 <nav class="nav">
-                    <a><button class="btn" (click)="libroRamdom()"><i class="fa-solid fa-shuffle"></i></button></a>
+                    <a><button class="btn" (click)="libRamdom()"><i class="fa-solid fa-shuffle"></i></button></a>
                     <a *ngIf="isLogged"><button class="btn" (click)="crearLibro()" style="min-width: 160px;"><i class="fa-solid fa-fire"></i> CREAR libro</button></a>
                     <div class="dropdown" *ngIf="isAdmin">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="admin" aria-expanded="false">
