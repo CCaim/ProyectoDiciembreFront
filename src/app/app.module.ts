@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
-
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
@@ -24,8 +23,6 @@ import { BookFormComponent } from './components/book-form/book-form.component';
 import { BookSearcherComponent } from './components/book-searcher/book-searcher.component';
 import { BooksComponent } from './components/books/books.component';
 import { BookCardComponent } from './components/shared/book-card/book-card.component';
-
-
 
 @NgModule({
   declarations: [
@@ -44,7 +41,6 @@ import { BookCardComponent } from './components/shared/book-card/book-card.compo
     BookComponent,
     AdminLibrosComponent,
     AdminGenerosComponent
-
   ],
   imports: [
     BrowserModule,
@@ -54,8 +50,7 @@ import { BookCardComponent } from './components/shared/book-card/book-card.compo
     FormsModule,
     NgxPaginationModule,
     NgxDropzoneModule
-    
   ],
-  
+  bootstrap: [AppComponent] // Asegúrate de agregar esto
 })
 export class AppModule { }
