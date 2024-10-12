@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.claro{
+    --blanco: #fff;
+    --blanco-fondo: #fff;
+    --verde-fondo: #0DA645;
+    --verde-tarjeta: #0eb94d;
+    --verde-claro: #06BD7D;
+    --negro: #000;
+    --boton-azul: #0dcaf0;
+    --url-pinchos-top:url(assets/top-claro.png);
+    --url-pinchos-bottom:url(assets/bottom-claro.png);
+}
+.oscuro{
+    --blanco: #0DA645;
+    --blanco-fondo: #757575;
+    --verde-fondo: #2E2E2E;
+    --verde-tarjeta: #595959;
+    --verde-claro: #2E2E2E;
+    --negro: #fff;
+    --boton-azul: #7e7e7e;
+    --url-pinchos-top:url(assets/top-dark.png);
+    --url-pinchos-bottom:url(assets/bottom-dark.png);
+}
