@@ -1,8 +1,4 @@
-Cosas pendientes:
-
-hacer de 0:
- -bookform.html
-
+yo que se, que funcione una vez funque el back
  
 
 
