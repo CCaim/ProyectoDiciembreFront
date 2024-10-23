@@ -1,4 +1,3 @@
-arreglar el onInit de book.component para que no de el error de cors al no haber ningun libro en la bbdd
- 
+arreglar el onInit de book.component como concepto, y revisar todos los ts de los componentes porque el puto login tambien petardea
 
 
