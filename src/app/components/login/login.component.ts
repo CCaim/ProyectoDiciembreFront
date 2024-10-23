@@ -36,37 +36,37 @@ export class LoginComponent implements OnInit{
     }
   }
 
-  onLogin():void {
+  onLogin(): void {
     console.log(this.username);
-    console.log(this.password)
+    console.log(this.password);
     this.loginUsuario = new LoginUsuario(this.username, this.password);
-    this._authService.login(this.loginUsuario).subscribe(
-      data => {
-        this.isLogged = true;
 
-        this._tokenService.setToken(data.token);
-        this._tokenService.setUserName(data.username);
-        this._tokenService.setAuthorities(data.authorities);
-        this.roles = data.authorities;
-        console.log(this.roles)
-        for (let i = 0; i < this.roles.length; i++) {
-          if(this.roles[i].authority === "ROLE_BAN"){
-            console.log("baneado")
-            this.onUserBanned();
-          }else{
-            window.location.reload();
-          };
+    this._authService.login(this.loginUsuario).subscribe({
+        next: (data) => {
+            this.isLogged = true;
+            this._tokenService.setToken(data.token);
+            this._tokenService.setUserName(data.username);
+            this._tokenService.setAuthorities(data.authorities);
+            this.roles = data.authorities;
+            console.log(this.roles);
+
+            // Check for banned role
+            if (this.roles.some(role => role.authority === "ROLE_BAN")) {
+                console.log("baneado");
+                this.onUserBanned();
+            } else {
+                window.location.reload();
+            }
+        },
+        error: (err) => {
+            this.isLogged = false;
+            this.isLoginFail = true;
+            this.errMsj = err.error.message;
+            console.log(err.error.message);
         }
-        
-      },
-      err => {
-        this.isLogged = false;
-        this.isLoginFail = true;
-        this.errMsj = err.error.message;
-        console.log(err.error.message);
-      }
-    )
-  }
+    });
+}
+
 
   mostrarRespuesta(i:string) {
     let respuesta = document.getElementById(i);
