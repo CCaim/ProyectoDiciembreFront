@@ -7,7 +7,7 @@ import { TokenService } from '../../service/token.service';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrl: './book.component.css'
+  styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit{
   
@@ -28,18 +28,18 @@ export class BookComponent implements OnInit{
     private _libService:LibroService, private _comenService:ComentarioService){}
 
   ngOnInit(){
-    this._activatedRoute.params.subscribe(params =>{
-      this._libService.getLibro(params['id']).subscribe(
-        (respuesta)=>{
-          this.libro = respuesta;
-          //this.pasosFixed = this.libro.instrucciones!.split(".");
-          if(this._tokenService.getUserName()===respuesta.usuario?.username)
-            this.isCreadorLibro=true;
-          console.log(respuesta);
-          console.log(this.isCreadorLibro);
-          console.log(this.pasosFixed);
-        });
-    });
+     this._activatedRoute.params.subscribe(params =>{
+       this._libService.getLibro(params['id']).subscribe(
+         (respuesta)=>{
+           this.libro = respuesta;
+           //this.pasosFixed = this.libro.instrucciones!.split(".");
+           if(this._tokenService.getUserName()===respuesta.usuario?.username)
+             this.isCreadorLibro=true;
+           console.log(respuesta);
+           console.log(this.isCreadorLibro);
+           console.log(this.pasosFixed);
+         });
+     });
     
     if (this._tokenService.getToken()) {
       this.isLogged = true;

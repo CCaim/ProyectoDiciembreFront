@@ -10,7 +10,7 @@ import { Genero, GeneroService } from '../../service/genero.service';
 @Component({
   selector: 'app-book-edit',
   templateUrl: './book-edit.component.html',
-  styleUrl: './book-edit.component.css'
+  styleUrls: ['./book-edit.component.css']
 })
 export class BookEditComponent {
   

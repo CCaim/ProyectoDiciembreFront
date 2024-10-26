@@ -4,7 +4,7 @@ import { Libro, LibroService } from '../../../service/libro.service';
 @Component({
   selector: 'app-book-card',
   templateUrl: './book-card.component.html',
-  styleUrl: './book-card.component.css'
+  styleUrls: ['./book-card.component.css']
 })
 export class BookCardComponent{
 

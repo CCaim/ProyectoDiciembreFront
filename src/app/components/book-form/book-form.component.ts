@@ -10,7 +10,7 @@ import { Genero, GeneroService } from '../../service/genero.service';
 @Component({
   selector: 'app-book-form',
   templateUrl: './book-form.component.html',
-  styleUrl: './book-form.component.css'
+  styleUrls: ['./book-form.component.css']
 })
 export class BookFormComponent implements OnInit{
   

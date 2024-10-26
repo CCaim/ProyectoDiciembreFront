@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-admin-generos',
   templateUrl: './admin-generos.component.html',
-  styleUrl: './admin-generos.component.css'
+  styleUrls: ['./admin-generos.component.css']
 })
 export class AdminGenerosComponent {
 

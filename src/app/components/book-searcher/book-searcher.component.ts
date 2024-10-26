@@ -5,7 +5,7 @@ import { Libro, LibroService } from '../../service/libro.service';
 @Component({
   selector: 'app-book-searcher',
   templateUrl: './book-searcher.component.html',
-  styleUrl: './book-searcher.component.css'
+  styleUrls: ['./book-searcher.component.css']
 })
 export class BookSearcherComponent implements OnInit{
   libros:Libro[] = [];
