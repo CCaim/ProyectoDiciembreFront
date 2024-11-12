@@ -18,15 +18,13 @@ export class RegistroComponent implements OnInit {
   errMsj: string = "";
   isLogged = false;
   isRegistroFail = false;
-  siteKey:string;
+  
 
   constructor(
     private _tokenService: TokenService,
     private _authService: AuthService,
     private _router: Router
-  ) { 
-    this.siteKey = "6LeOS3UmAAAAAFaxim-B3LNw1ifyg1BHsCp1oL58";
-  }
+  ){}
 
   ngOnInit() {
     if (this._tokenService.getToken()) {
