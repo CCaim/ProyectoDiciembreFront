@@ -10,9 +10,10 @@ import { AdminGenerosComponent } from './components/admin/admin-generos/admin-ge
 import { AdminUsuariosComponent } from './components/admin/admin-usuarios/admin-usuarios.component';
 import { BookEditComponent } from './components/book-edit/book-edit.component';
 import { BookSearcherComponent } from './components/book-searcher/book-searcher.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 const routes: Routes = [
-  {path:"home", component:BookComponent},
+  {path:"home", component:MainPageComponent},
   {path:"libro/:id", component:BookComponent},
   {path:"newLibro", component:BookFormComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user']}},
   {path:"editLibro/:id", component:BookEditComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user']}},

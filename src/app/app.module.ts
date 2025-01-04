@@ -23,6 +23,7 @@ import { BookFormComponent } from './components/book-form/book-form.component';
 import { BookSearcherComponent } from './components/book-searcher/book-searcher.component';
 import { BooksComponent } from './components/books/books.component';
 import { BookCardComponent } from './components/shared/book-card/book-card.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BookCardComponent } from './components/shared/book-card/book-card.compo
     BookEditComponent,
     BookComponent,
     AdminLibrosComponent,
-    AdminGenerosComponent
+    AdminGenerosComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
