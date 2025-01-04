@@ -1,5 +1,1 @@
-arreglar errores de lo que sea que falle, porque ya no hay cors
-
-yippieee
-
-
+implementar el modo oscuro en la main page
