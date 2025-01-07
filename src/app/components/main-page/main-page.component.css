@@ -22,9 +22,10 @@ body {
 
 /* Estilos del contenedor principal */
 .login-component {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%; /* Ocupa el 100% del ancho */
+  margin: 0;
   background-color: var(--verde-fondo); /* Fondo verde claro */
+  padding: 20px;
 }
 
 /* Estilos del carrusel */
