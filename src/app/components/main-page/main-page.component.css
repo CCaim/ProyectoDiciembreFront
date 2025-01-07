@@ -1,18 +1,30 @@
+/* Definición de variables */
+:root {
+  --verde-fondo: #a8e6cf; /* Verde claro de fondo */
+  --verde-tarjeta: #81c784; /* Verde para las tarjetas */
+  --verde-claro: #c8e6c9; /* Verde más claro */
+  --negro: #333333; /* Color negro */
+  --blanco: #ffffff; /* Blanco */
+}
+
 /* Estilos generales */
+* {
+  margin: 8px;
+  padding: 8px;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  transition: background-color 0.3s ease; /* Transición para suavizar el cambio de color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición para suavizar el cambio de color */
 }
 
 /* Estilos del contenedor principal */
-.main-container {
-  max-width: 1200px;
+.login-component {
+  max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #ffffff; /* Fondo blanco por defecto */
-  color: #333; /* Color de texto por defecto */
+  background-color: var(--verde-fondo); /* Fondo verde claro */
 }
 
 /* Estilos del carrusel */
@@ -50,8 +62,8 @@ body {
 }
 
 button {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: var(--negro);
+  color: var(--blanco);
   border: none;
   font-size: 2em;
   padding: 10px;
@@ -60,15 +72,7 @@ button {
 }
 
 button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.prev-button {
-  margin-left: 10px;
-}
-
-.next-button {
-  margin-right: 10px;
+  background-color: var(--verde-tarjeta); /* Cambio a verde claro en hover */
 }
 
 /* Información sobre la web */
@@ -79,12 +83,12 @@ button:hover {
 
 .about-section h1 {
   font-size: 2.5em;
-  color: #333;
+  color: var(--negro); /* Color negro para los títulos */
 }
 
 .about-section p {
   font-size: 1.2em;
-  color: #666;
+  color: var(--negro);
   max-width: 800px;
   margin: 20px auto;
 }
@@ -97,7 +101,7 @@ button:hover {
 
 .recommended-books h2 {
   font-size: 2em;
-  color: #333;
+  color: var(--negro);
   margin-bottom: 20px;
 }
 
@@ -111,47 +115,117 @@ button:hover {
 .book-item {
   text-align: center;
   width: 200px;
-  transition: transform 0.3s ease; /* Transición suave para el hover */
-  margin: 30px 0; /* Aumentamos el margen superior e inferior un 20% */
+  transition: transform 0.3s ease;
+  margin: 30px 0;
 }
 
 .book-item img {
   width: 100%;
   height: 300px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px var(--negro);
   object-fit: cover;
 }
 
 .book-title {
   margin-top: 10px;
   font-size: 1.1em;
-  color: #444;
+  color: var(--negro);
 }
 
 /* Efecto Hover */
 .book-item:hover {
-  transform: scale(1.2); /* Aumenta el tamaño en un 20% */
+  transform: scale(1.2);
 }
 
 .book-item:hover img {
-  transform: scale(1.1); /* Un pequeño zoom en la imagen cuando se pasa el ratón */
+  transform: scale(1.1);
+}
+
+/* Estilos del formulario */
+form {
+  border: 1px solid var(--blanco);
+  background-color: var(--verde-tarjeta);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-icono {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: var(--negro);
+}
+
+.form-icono i {
+  font-size: 60px;
+}
+
+.button-login {
+  width: 400px;
+}
+
+.button-login button {
+  margin: 0;
+}
+
+.input-style {
+  margin: 0;
+  padding-left: 5px;
+}
+
+/* Tarjetas de preguntas */
+.tarjetas-preguntas {
+  display: flex;
+  flex-flow: column wrap;
+  column-gap: 15px;
+}
+
+.tarjeta-pregunta-card {
+  flex: 1 1 30%;
+  background-color: var(--verde-tarjeta);
+  padding: 0;
+  border: 1px solid var(--blanco);
+  box-shadow: 0px 0px 10px 0px var(--negro);
+}
+
+.pregunta {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+}
+
+.pregunta i {
+  margin: 0;
+  padding: 0;
+  color: var(--negro);
+  font-size: 40px;
+  text-align: right;
+}
+
+.pregunta h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--negro);
+}
+
+.tarjeta-respuesta {
+  margin: 0;
+  display: none;
+  background-color: var(--verde-claro);
+  color: var(--negro);
 }
 
 /* Estilos para el modo claro */
-.main-container.claro {
-  background-color: #ffffff; /* Fondo blanco en modo claro */
-  color: #333; /* Color de texto en modo claro */
-}
-
-body.claro .carousel-item.active {
-  background-color: #ffffff;
+body.claro {
+  background-color: var(--verde-fondo);
+  color: var(--negro);
 }
 
 /* Estilos para el modo oscuro */
-.main-container.oscuro {
-  background-color: #2f2f2f; /* Gris mate en modo oscuro */
-  color: #e60707; /* Texto en un tono claro */
+body.oscuro {
+  background-color: #3a3a3a; /* Fondo oscuro para todo el cuerpo */
+  color: var(--blanco); /* Texto blanco en modo oscuro */
 }
 
 body.oscuro .carousel-item.active {
@@ -159,22 +233,21 @@ body.oscuro .carousel-item.active {
 }
 
 body.oscuro .carousel-navigation button {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #e60707;
+  background-color: var(--blanco);
+  color: var(--negro);
 }
 
 body.oscuro .about-section h1,
 body.oscuro .recommended-books h2 {
-  color: #e60707;
+  color: var(--blanco); /* Títulos en blanco en modo oscuro */
 }
 
 body.oscuro .book-title {
-  color: #ddd; /* Títulos de libros más claros en modo oscuro */
+  color: var(--blanco); /* Títulos de libros más claros en modo oscuro */
 }
 
 body.oscuro .book-item:hover {
   transform: scale(1.2);
-  transition: transform 0.3s ease;
 }
 
 body.oscuro .book-item:hover img {
