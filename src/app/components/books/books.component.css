@@ -3,7 +3,7 @@
 }
 
 .banner {
-    background-color: var(--verde-fondo);
+    background-color: var(--cyan-fondo);
     padding: 20px;
   }
   
@@ -66,7 +66,7 @@
 }
 
 .paginacion ::ng-deep .ngx-pagination .current {
-    background: var(--verde-fondo);
+    background: var(--cyan-fondo);
 }
 
 @media all and (max-width:1225px) {

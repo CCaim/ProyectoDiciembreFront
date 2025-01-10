@@ -4,7 +4,7 @@
 }
 
 .libro-detalle-card{
-    background-color: var(--verde-fondo);
+    background-color: var(--cyan-fondo);
     border-radius: 20px;
     padding: 10px;
 }
@@ -76,7 +76,7 @@
 .ingredientes-card{
     flex-basis: 25%;
     margin: 3%;
-    background-color: var(--verde-fondo);
+    background-color: var(--cyan-fondo);
     color: var(--negro);
     border-color: var(--negro);
 }
@@ -86,7 +86,7 @@
 }
 
 .lista-ingre{
-    background-color: var(--verde-fondo);
+    background-color: var(--cyan-fondo);
     color: var(--negro);
     border-color: var(--negro);
 }

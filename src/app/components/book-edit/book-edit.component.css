@@ -1,7 +1,7 @@
 .padre-form{
     min-height: 750px;
     padding: 1.5%;
-    background-color: var(--verde-fondo);
+    background-color: var(--cyan-fondo);
     color: var(--negro);
 }
 
@@ -9,7 +9,7 @@
     display: flex;
     margin: 3%;
     margin-bottom: 0;
-    background-color: var(--verde-fondo);
+    background-color: var(--cyan-fondo);
     color: var(--negro);
 }
 
@@ -61,7 +61,7 @@
 .ingredientes-card{
     flex-basis: 45%;
     margin: 3%;
-    background-color: var(--verde-fondo);
+    background-color: var(--cyan-fondo);
     color: var(--negro);
     border-color: var(--negro);
     justify-content: center;
@@ -69,7 +69,7 @@
 }
 
 .lista-ingre{
-    background-color: var(--verde-fondo);
+    background-color: var(--cyan-fondo);
     color: var(--negro);
     border-color: var(--negro);
     display: flex;

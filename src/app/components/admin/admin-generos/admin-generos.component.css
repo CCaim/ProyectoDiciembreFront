@@ -1,5 +1,5 @@
 .admin-table{
-    background-color: var(--verde-fondo);
+    background-color: var(--cyan-fondo);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -14,7 +14,7 @@
 }
 
 .table > :not(caption) > * > *{
-    background-color: var(--verde-fondo)!important;
+    background-color: var(--cyan-fondo)!important;
 }
 
 .table-hover{
