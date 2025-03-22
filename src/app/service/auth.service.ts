@@ -1,25 +1,42 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NuevoUsuario } from '../models/nuevo-usuario';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { JwtDto } from '../models/jwt-dto';
-import { LoginUsuario } from '../models/login-usuario';
+import { Router } from '@angular/router';
 
 @Injectable({
-    providedIn: 'root'
-  })
-  export class AuthService {
-  
-    authURL = 'http://localhost:8095/auth/';
-  
-    constructor(private httpClient: HttpClient) { }
-  
-    public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
-      return this.httpClient.post<any>(this.authURL + 'nuevo', nuevoUsuario);
-    }
-  
-    public login(loginUsuario: LoginUsuario): Observable<JwtDto> {
-      return this.httpClient.post<JwtDto>(this.authURL + 'login', loginUsuario);
-    }
+  providedIn: 'root'
+})
+export class AuthService {
+
+  private baseUrl = 'http://localhost:8095/auth'; // Asegúrate de que la URL coincida con tu backend
+
+  constructor(private http: HttpClient, private router: Router) { }
+
+  login(username: string, password: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/login`, { username, password });
   }
-  
+
+  register(username: string, password: string, email: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/nuevo`, { username, password, email });
+  }
+
+  createAdminUser(): Observable<any> {
+    return this.http.post(`${this.baseUrl}/create-admin-user`, {});
+  }
+
+  logout(): void {
+    // Aquí puedes manejar la lógica de logout
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
+  }
+
+  isAuthenticated(): boolean {
+    // Aquí puedes manejar la lógica para verificar si el usuario está autenticado
+    return !!localStorage.getItem('user');
+  }
+
+  getUserDetails(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+}

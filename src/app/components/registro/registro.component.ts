@@ -1,47 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NuevoUsuario } from '../../models/nuevo-usuario';
+import { Component } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
-import { TokenService } from '../../service/token.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-registro',
+  selector: 'app-register',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent implements OnInit {
+export class RegistroComponent {
+  username: string = '';
+  password: string = '';
+  email: string = '';
 
-  nuevoUsuario: NuevoUsuario | undefined;
-  nombreUsuario: string = "";
-  email: string = "";
-  password: string = "";
-  errMsj: string = "";
-  isLogged = false;
-  isRegistroFail = false;
-  
+  constructor(private authService: AuthService, private router: Router) { }
 
-  constructor(
-    private _tokenService: TokenService,
-    private _authService: AuthService,
-    private _router: Router
-  ){}
-
-  ngOnInit() {
-    if (this._tokenService.getToken()) {
-      this.isLogged = true;
-    }
-  }
-
-  onRegister(): void {
-    this.nuevoUsuario = new NuevoUsuario(this.nombreUsuario, this.email, this.password);
-    this._authService.nuevo(this.nuevoUsuario).subscribe(
+  register() {
+    this.authService.register(this.username, this.password, this.email).subscribe(
       data => {
-        this._router.navigate(['/login']);
+        this.router.navigate(['/login']);
       },
       err => {
-        this.isRegistroFail = true;
-        this.errMsj = err.error.mensaje;
-        console.log(err.error.message);
+        console.error(err);
       }
     );
   }
