@@ -20,23 +20,22 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/nuevo`, { username, password, email });
   }
 
-  createAdminUser(): Observable<any> {
-    return this.http.post(`${this.baseUrl}/create-admin-user`, {});
-  }
-
   logout(): void {
-    // Aquí puedes manejar la lógica de logout
     localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
 
   isAuthenticated(): boolean {
-    // Aquí puedes manejar la lógica para verificar si el usuario está autenticado
     return !!localStorage.getItem('user');
   }
 
   getUserDetails(): any {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
+  }
+
+  getUserRole(): string | null {
+    const user = this.getUserDetails();
+    return user ? user.role : null;
   }
 }
