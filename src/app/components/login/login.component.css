@@ -4,7 +4,7 @@
 }
 
 .login-component{
-    background-color: var(--cyan-fondo);
+    background-color: var(--verde-fondo);
     margin: 0;
 }
 
@@ -18,7 +18,7 @@ h2{
 
 form{
     border: 1px solid var(--blanco);
-    background-color: var(--cyan-tarjeta);
+    background-color: var(--verde-tarjeta);
     display: flex;
     flex-direction: column;
 }
@@ -53,7 +53,7 @@ form{
 }
     .tarjeta-pregunta-card{
         flex: 1 1 30%;
-        background-color: var(--cyan-tarjeta);
+        background-color: var(--verde-tarjeta);
         padding: 0;
         border: 1px solid var(--blanco);
         box-shadow: 0px 0px 10px 0px var(--negro);

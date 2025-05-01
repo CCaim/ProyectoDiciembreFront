@@ -21,11 +21,54 @@
                 </div>
             </div>
             <div style="display: flex; justify-content: center;">
+                
+                
+            </div>
+            <div style="display: flex; justify-content: center;">
                 <button class="w-100 btn btn-lg btn-outline-light button-login" [disabled]="!f.valid">Acceder</button>
             </div>
             <h5 routerLink="/registro">Si aún no estas registrado, pincha aquí</h5>
         </form>
         <div *ngIf="f.submitted && isLoginFail" class="alert alert-danger">Error! {{errMsj}}</div>
         <div *ngIf="isBanned" class="alert alert-danger">Tu usuario ha sido baneado y no tiene acceso a La Espátula</div>
+    </div>
+    <div>
+        <div>
+            <h1 class="text-center">Dudas más frecuentes</h1>
+        </div>
+        <div class="tarjetas-preguntas">
+            <section class="tarjeta-pregunta-card">
+                <div (click)="mostrarRespuesta('1')" class="pregunta">
+                    <h4>¿Por qué debería registrarme en La Espátula?</h4>
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div id="1" class="tarjeta-respuesta">
+                    <p>Registrarse en La Espátula tiene varios beneficios. Al registrarte, tendrás acceso a funciones adicionales, como la capacidad de publicar tus recetas favoritas y participar en nuestra comunidad de amantes de la cocina. También podrás interactuar con otros usuarios, dejar comentarios y calificar las recetas.</p>
+                </div>
+            </section>
+            <section class="tarjeta-pregunta-card">
+                <div (click)="mostrarRespuesta('2')" class="pregunta">
+                    <h4>¿Puedo enviar mis propias recetas para que sean publicadas en La Espátula?</h4>
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div id="2" class="tarjeta-respuesta">
+                    <p>¡Por supuesto! Aprecio la participación de los usuarios y me encantaría que compartieras tus propias recetas con nuestra comunidad. Puedes enviar tus recetas a través de nuestro formulario de envío de recetas en la página "Crear Receta" de nuestro sitio web. Revisaré cuidadosamente todas las recetas enviadas y, si cumplen con nuestros criterios de calidad, las publicaré en la página para que otros usuarios las disfruten.</p>
+                </div>
+            </section>
+            <section class="tarjeta-pregunta-card">
+                <div (click)="mostrarRespuesta('3')" class="pregunta">
+                    <h4>¿Cómo puedo buscar recetas en La Espátula?</h4>
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div id="3" class="tarjeta-respuesta">
+                    <p>En La Espátula, ofrecemos varias opciones para buscar recetas. La forma más sencilla es 
+                        utilizar nuestra barra de búsqueda ubicada en la parte superior de cada página. 
+                        Simplemente ingresa palabras clave relacionadas con la receta que estás buscando, 
+                        como el nombre del plato, y haz clic en el botón de búsqueda.
+                         Nuestro sistema realizará una búsqueda en nuestra base de datos y te mostrará los resultados relevantes.
+                           Además, ofrecemos funciones de filtrado para ayudarte a refinar aún más tus resultados de búsqueda.</p>
+                </div>
+            </section>
+        </div>
     </div>
 </div>

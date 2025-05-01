@@ -4,7 +4,7 @@
 }
 
 .registro-component{
-    background-color: var(--cyan-fondo);
+    background-color: var(--verde-fondo);
     margin: 0;
 }
 
@@ -18,7 +18,7 @@ h2{
 
 form{
     border: 1px solid var(--blanco);
-    background-color: var(--cyan-tarjeta);
+    background-color: var(--verde-tarjeta);
     display: flex;
     flex-direction: column;
 }
