@@ -16,15 +16,15 @@
             <div class="descarga">
                 <nav class="nav">
                     <a><button class="btn" (click)="libRamdom()"><i class="fa-solid fa-shuffle"></i></button></a>
-                    <a *ngIf="isLogged"><button class="btn" (click)="crearLibro()" style="min-width: 160px;"><i class="fa-solid fa-fire"></i> CREAR libro</button></a>
+                    <a *ngIf="isLogged"><button class="btn" (click)="crearLibro()" style="min-width: 160px;"><i class="fa-solid fa-fire"></i> Crear libro</button></a>
                     <div class="dropdown" *ngIf="isAdmin">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="admin" aria-expanded="false">
                             <i class="fa-solid fa-screwdriver-wrench"></i> ADMIN
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="admin">
-                            <li><a class="dropdown-item" routerLink="/admin-libros">libroS</a></li>
-                            <li><a class="dropdown-item" routerLink="/admin-ingredientes">INGREDIENTES</a></li>
-                            <li><a class="dropdown-item" routerLink="/admin-usuarios">USUARIOS</a></li>
+                            <li><a class="dropdown-item" routerLink="/admin-libros">Libros</a></li>
+                            <li><a class="dropdown-item" routerLink="/admin-generos">Generos</a></li>
+                            <li><a class="dropdown-item" routerLink="/admin-usuarios">Usuarios</a></li>
                         </ul>
                     </div>
                     <div class="iconos">
