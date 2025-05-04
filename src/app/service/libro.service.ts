@@ -62,9 +62,10 @@ export interface Libro {
   usuario?: Usuario;
   texto?: string;
   genero?: GeneroConCantidad[];
+  descripcion?: string; // Nueva propiedad para la descripción del libro
 }
 
-export interface GeneroConCantidad{
+export interface GeneroConCantidad {
   id?: number;
   genero?: Genero;
   cantidad?: number;

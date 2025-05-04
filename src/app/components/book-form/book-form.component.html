@@ -15,15 +15,13 @@
                 <label class="label-libro" for="genero">Género:</label>
                 <select class="form-select input-libro" id="genero" name="genero" [(ngModel)]="libroNew.genero" required>
                     <option value="" disabled selected>--Selecciona un género--</option>
-                    <option value="Ficción">Ficción</option>
-                    <option value="No Ficción">No Ficción</option>
-                    <option value="Biografía">Biografía</option>
-                    <option value="Ciencia">Ciencia</option>
-                    <option value="Historia">Historia</option>
-                    <option value="Fantasía">Fantasía</option>
+                    <option value="Desayuno">Desayuno</option>
                 </select>
             </div>
-            
+            <div class="form-group row group-libro">
+                <label class="label-libro" for="descripcion">Descripción:</label>
+                <textarea class="form-control input-libro" id="descripcion" name="descripcion" [(ngModel)]="libroNew.descripcion" placeholder="Escribe una breve descripción del libro" required></textarea>
+            </div>
         </div>
         <div class="right-form">
             <ngx-dropzone (change)="onSelect($event)">
@@ -34,6 +32,7 @@
             </ngx-dropzone>
             <div class="actions-libro">
                 <button class="btn btn-danger" (click)="goBack()">Cancelar</button>
+                <button class="btn btn-primary" (click)="subirImagen()">Subir Imagen</button>
                 <button type="submit" class="btn btn-success" [disabled]="!imagenSubida">Crear Libro</button>
             </div>
         </div>
