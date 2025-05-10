@@ -7,20 +7,41 @@
 
 .form-estilo {
     display: flex;
+    flex-direction: column;
     margin: 3%;
     margin-bottom: 0;
     background-color: var(--cyan-fondo);
     color: var(--negro);
 }
 
-.left-form {
-    flex-basis: 50%;
+.top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.portada-dropzone {
+    margin-bottom: 15px;
+    max-width: 300px;
+}
+
+.middle-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.bottom-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
 }
 
 .group-libro {
     display: flex;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .label-libro {
@@ -38,13 +59,19 @@
     min-width: 160px;
 }
 
-.input-descripcion {
-    max-width: 90%;
-    height: 150px;
-}
-
-.right-form {
-    flex-basis: 50%;
+.hoja-papel {
+    width: 100%;
+    height: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    color: #333;
+    resize: none;
+    overflow-y: auto;
 }
 
 .actions-libro {
