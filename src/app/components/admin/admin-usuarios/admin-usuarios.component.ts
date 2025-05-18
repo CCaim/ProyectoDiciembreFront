@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Rol, Usuario, UsuarioService } from '../../../service/usuario.service';
+import { Rol, Usuario, UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-admin-usuarios',

@@ -1,8 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-/* You can add global styles to this file, and also import other style files */
-@import "bootstrap/dist/css/bootstrap.min.css";
-
-
+@import "~bootstrap/dist/css/bootstrap.css";
 
 html, body{
     margin: 0;
@@ -10,10 +7,10 @@ html, body{
 }
 
 .claro{
-    --blanco: #595959;
+    --blanco: #fff;
     --blanco-fondo: #fff;
-    --cyan-fondo: #e9fdf0;
-    --cyan-tarjeta: #e9fdf0;
+    --verde-fondo: #0DA645;
+    --verde-tarjeta: #0eb94d;
     --verde-claro: #06BD7D;
     --negro: #000;
     --boton-azul: #0dcaf0;
@@ -21,10 +18,10 @@ html, body{
     --url-pinchos-bottom:url(assets/bottom-claro.png);
 }
 .oscuro{
-    --blanco: #e9fdf0;
+    --blanco: #0DA645;
     --blanco-fondo: #757575;
-    --cyan-fondo: #2E2E2E;
-    --cyan-tarjeta: #595959;
+    --verde-fondo: #2E2E2E;
+    --verde-tarjeta: #595959;
     --verde-claro: #2E2E2E;
     --negro: #fff;
     --boton-azul: #7e7e7e;

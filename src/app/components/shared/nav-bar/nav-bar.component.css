@@ -7,7 +7,7 @@
 }
 
 .menu {
-    background-color: var(--cyan-fondo);
+    background-color: var(--verde-fondo);
     padding: 20px;
     width: 100%;
     display: flex;
@@ -148,7 +148,7 @@ button {
 }
 
 .dropdown-menu {
-    background-color: var(--cyan-fondo);
+    background-color: var(--verde-fondo);
 }
 
 .dropdown-item {
@@ -156,13 +156,13 @@ button {
     cursor: pointer;
 }
 .dropdown-item:hover {
-    background-color: var(--cyan-fondo);
+    background-color: var(--verde-fondo);
 }
 
 @media all and (max-width:1225px) {
 
     .menu {
-        background-color: var(--cyan-fondo);
+        background-color: var(--verde-fondo);
 
         padding: 20px;
         width: 100%;

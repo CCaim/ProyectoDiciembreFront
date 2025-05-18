@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CloudinaryService } from '../../service/cloudinary.service';
+import { CloudinaryService } from 'src/app/services/cloudinary.service';
 import { NgForm } from '@angular/forms';
-import { Genero } from '../../service/genero.service';
-import { LibroService, Libro } from '../../service/libro.service';
-import { GeneroService } from '../../service/genero.service';
-import { Usuario, UsuarioService } from '../../service/usuario.service';
-import { TokenService } from '../../service/token.service';
+import { Genero } from 'src/app/services/genero.service';
+import { LibroService, Libro } from 'src/app/services/libro.service';
+import { GeneroService } from 'src/app/services/genero.service';
+import { Usuario, UsuarioService } from 'src/app/services/usuario.service';
+import { TokenService } from 'src/app/services/token.service';
 import { Router } from '@angular/router';
 
 @Component({

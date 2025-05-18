@@ -5,7 +5,6 @@
            <tr>
              <th scope="col">ID</th>
              <th scope="col">NOMBRE DEL GÉNERO</th>
-             <th scope="col">DESCRIPCIÓN</th>
              <th scope="col">ACCIONES</th>
            </tr>
          </thead>
@@ -37,9 +36,6 @@
              <label for="nombre-edit" class="col-form-label">Nombre:</label>
              <input type="text" class="form-control" id="nombre-edit" name="nombre-edit" [(ngModel)]="generoAEditar.nombre" required>
            </div>
-           <div class="mb-3">
-             <label for="descripcion-edit" class="col-form-label">Descripción:</label>
-           </div>
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -63,9 +59,6 @@
              <div class="mb-3">
                <label for="nombre-new" class="col-form-label">Nombre:</label>
                <input type="text" class="form-control" id="nombre-new" name="nombre-new" [(ngModel)]="generoNew.nombre" required>
-             </div>
-             <div class="mb-3">
-               <label for="descripcion-new" class="col-form-label">Descripción:</label>
              </div>
          </div>
          <div class="modal-footer">

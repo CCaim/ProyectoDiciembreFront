@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "espatulaFront": {
+    "proyectoFront": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/proyecto-diciembre",
+            "outputPath": "dist/proyecto-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "espatulaFront:build:production"
+              "browserTarget": "proyectoFront:build:production"
             },
             "development": {
-              "browserTarget": "espatulaFront:build:development"
+              "browserTarget": "proyectoFront:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "espatulaFront:build"
+            "browserTarget": "proyectoFront:build"
           }
         },
         "test": {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Genero, GeneroService } from '../../../service/genero.service';
+import { Genero, GeneroService } from 'src/app/services/genero.service';
 import { NgForm } from '@angular/forms';
 
 @Component({

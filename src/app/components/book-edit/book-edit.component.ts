@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { CloudinaryService } from '../../service/cloudinary.service';
-import { TokenService } from '../../service/token.service';
+import { CloudinaryService } from 'src/app/services/cloudinary.service';
+import { TokenService } from 'src/app/services/token.service';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Libro, LibroService } from '../../service/libro.service';
-import { Genero, GeneroService } from '../../service/genero.service';
+import { Libro, LibroService } from 'src/app/services/libro.service';
+import { Genero, GeneroService } from 'src/app/services/genero.service';
 @Component({
   selector: 'app-book-edit',
   templateUrl: './book-edit.component.html',
@@ -95,7 +95,7 @@ export class BookEditComponent {
     if(this.imagenes[0]){
       const data = new FormData();
       data.append('file', this.imagenes[0]);
-      data.append('upload_preset', 'angular_espatula');
+      data.append('upload_preset', 'angular_proyecto');
       data.append('cloud_name', 'de411te3t');
       this._cloudinaryService.cargarImagen(data)
       .then(response => response.json())

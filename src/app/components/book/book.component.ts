@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ComentarioDTO, ComentarioService } from '../../service/comentario.service';
-import { Libro, LibroService } from '../../service/libro.service';
-import { TokenService } from '../../service/token.service';
+import { ComentarioDTO, ComentarioService } from 'src/app/services/comentario.service';
+import { Libro, LibroService } from 'src/app/services/libro.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-book',

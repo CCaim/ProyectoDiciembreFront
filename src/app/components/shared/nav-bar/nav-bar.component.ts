@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LibroService } from '../../../service/libro.service';
-import { TokenService } from '../../../service/token.service';
-import { Libro } from '../../../service/libro.service';
+import { Libro, LibroService } from 'src/app/services/libro.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit{
+export class NavBarComponent implements OnInit {
+
   body = document.getElementsByTagName("body")[0];
   isLogged = false;
   roles: string[]=[];
   isAdmin: boolean=false;
   username:string|null ="";
 
-  constructor(private _router: Router, private _tokenService: TokenService, private _libService: LibroService){}
+  constructor(private _router: Router, private _tokenService: TokenService, private _libroService: LibroService){}
 
   ngOnInit() {
     if (this._tokenService.getToken()) {
@@ -53,23 +53,24 @@ export class NavBarComponent implements OnInit{
     this._router.navigate(['/search',busqueda]);
   }
 
-  libRamdom(){
+  libroRamdom(){
     let maxRec:number;
-    this._libService.getLibros().subscribe(
+    this._libroService.getLibros().subscribe(
       (respuesta: Libro[]) => {
         maxRec = respuesta.length;
         let numR:number = Math.round(Math.random()*(maxRec-1)+1);
-        this._router.navigate(['/lib', numR]);
+        this._router.navigate(['/libro', numR]);
       }
     );
   }
 
   crearLibro(){
-    this._router.navigate(['/newLibro']);
+    this._router.navigate(['/new-book']);
   }
 
   onLogOut(): void {
     this._tokenService.logOut();
     window.location.reload();
   }
+
 }

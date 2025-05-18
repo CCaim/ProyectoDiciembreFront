@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { LibroService } from '../../../service/libro.service';
-import { Libro } from '../../../service/libro.service';
+import { LibroService } from 'src/app/services/libro.service';
+import { Libro } from 'src/app/services/libro.service';
 import { Router } from '@angular/router';
 
 @Component({

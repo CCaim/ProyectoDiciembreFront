@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
-import { Libro, LibroService } from '../../../service/libro.service';
+import { Libro, LibroService } from 'src/app/services/libro.service';
 
 @Component({
   selector: 'app-book-card',

@@ -1,33 +1,40 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookComponent } from './components/book/book.component';
-import { BookFormComponent } from './components/book-form/book-form.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { GuardService as guard } from './service/guard.service';
-import { AdminLibrosComponent } from './components/admin/admin-libros/admin-libros.component';
-import { AdminGenerosComponent } from './components/admin/admin-generos/admin-generos.component';
+import { GuardService as guard } from './services/guard.service';
 import { AdminUsuariosComponent } from './components/admin/admin-usuarios/admin-usuarios.component';
+import { BuscadorLibroComponent } from './components/buscador-libro/buscador-libro.component';
+
+// Nuevos componentes (Ejemplo: AdminLibrosComponent, BookEditComponent, etc.)
+import { BookFormComponent } from './components/book-form/book-form.component';
+import { AdminGenerosComponent } from './components/admin/admin-generos/admin-generos.component';
+import { AdminLibrosComponent } from './components/admin/admin-libros/admin-libros.component';
 import { BookEditComponent } from './components/book-edit/book-edit.component';
-import { BookSearcherComponent } from './components/book-searcher/book-searcher.component';
-import { MainPageComponent } from './components/main-page/main-page.component';
+
+// <-- Agrega el import del componente de detalle de libro -->
+import { BookComponent } from './components/book/book.component';
 
 const routes: Routes = [
-  {path:"home", component:MainPageComponent},
-  {path:"libro/:id", component:BookComponent},
-  {path:"newLibro", component:BookFormComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user']}},
-  {path:"editLibro/:id", component:BookEditComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user']}},
-  {path:"login", component:LoginComponent},
-  {path:"registro", component:RegistroComponent},
-  {path:"admin-libros", component:AdminLibrosComponent, canActivate: [guard], data: { expectedRol: ['admin']}},
-  {path:"admin-generos", component: AdminGenerosComponent, canActivate: [guard], data: { expectedRol: ['admin']}},
-  {path:"admin-usuarios", component:AdminUsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin']}},
-  {path:"search/:busqueda", component:BookSearcherComponent},
-  {path:"**", pathMatch:"full", redirectTo:"home"}
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
+  { path: 'admin-usuarios', component: AdminUsuariosComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
+  { path: 'search/:busqueda', component: BuscadorLibroComponent },
+
+  // Rutas para los nuevos componentes
+  { path: 'new-book', component: BookFormComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
+  { path: "admin-generos", component: AdminGenerosComponent, canActivate: [guard], data: { expectedRol: ['admin']}},
+  { path: "admin-libros", component: AdminLibrosComponent, canActivate: [guard], data: { expectedRol: ['admin']}},
+  { path: "edit-book/:id", component: BookEditComponent, canActivate: [guard], data: { expectedRol: ['admin']}},
+
+
+  { path: 'libro/:id', component: BookComponent },
+
+  { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
