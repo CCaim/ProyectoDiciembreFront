@@ -14,23 +14,10 @@
                 <label class="label-libro">(0 a 5 estrellas)</label>
             </div>
 
-            <div class="form-group row group-libro">
-                <label class="label-libro" for="fecha">Fecha de publicación:</label>
-                <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="libroEdit.fecha" required />
-            </div>
-
-            <div class="form-group row group-libro">
-                <label class="label-libro" for="tipo">Tipo:</label>
-                <select class="form-select input-libro" id="tipo" name="tipo" [(ngModel)]="libroEdit.tipo" required>
-                    <option value="" disabled selected>--Selecciona una opción--</option>
-                    <option value="Adulto">Adulto</option>
-                    <option value="Infantil">Infantil</option>
-                </select>
-            </div>
 
             <div class="form-group row">
                 <label style="font-weight: bold; margin-bottom: 15px;" for="descripcion">Descripción:</label>
-                <textarea class="form-control input-pasos" style="resize: none;" id="descripcion" name="descripcion" [(ngModel)]="libroEdit.texto" required placeholder="Describe brevemente el contenido del libro."></textarea>
+                <textarea class="form-control input-pasos" style="resize: none;" id="descripcion" name="descripcion" [(ngModel)]="libroEdit.instrucciones" required placeholder="Describe brevemente el contenido del libro."></textarea>
             </div>
         </div>
 

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Usuario } from './usuario.service';
+import { Genero } from './genero.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Genero } from './genero.service';
 import { Comentario } from './comentario.service';
-import { Usuario } from './usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,30 +14,31 @@ export class LibroService {
 
   constructor(private _http: HttpClient) { }
 
-  getLibros(): Observable<Libro[]> {
+  getLibros():Observable<Libro[]>{
     return this._http.get<Libro[]>(`${this.apiLibroUrl}/getAll`);
   }
 
-  getLibro(id: number): Observable<Libro> {
+  getLibro(id: number):Observable<Libro>{
     return this._http.get<Libro>(`${this.apiLibroUrl}/${id}`);
   }
 
-  createLibro(nuevoLibro: Libro): Observable<Libro> {
-    return this._http.post<Libro>(`${this.apiLibroUrl}/new`, nuevoLibro);
+  createLibro(nuevaLibro: Libro):Observable<Libro>{
+    return this._http.post<Libro>(`${this.apiLibroUrl}/new`, nuevaLibro);
   }
 
-  removeLibro(id: number): Observable<void> {
+  removeLibro(id:number):Observable<void>{
     return this._http.delete<void>(`${this.apiLibroUrl}/remove/${id}`);
   }
 
-  putLibro(id: number, updatedLibro: Libro): Observable<Libro> {
+  putLibro(id:number, updatedLibro:Libro):Observable<Libro>{
     return this._http.put<Libro>(`${this.apiLibroUrl}/update/${id}`, updatedLibro);
   }
 
-  buscarLibros(busqueda: string, librosAct: Libro[]): Libro[] {
-    let librosAux: Libro[] = [];
+  buscarLibros(busqueda:string, librosAct:Libro[]):Usuario[]{
+    let librosAux: Libro[]=[];
     busqueda = busqueda.toLowerCase();
-    for (let libro of librosAct) {
+    for(let i = 0; i < librosAct.length; i++) {
+      let libro = librosAct[i];
       let nombre = libro.nombre!.toLowerCase();
       if (nombre.indexOf(busqueda) >= 0) {
         librosAux.push(libro);
@@ -46,28 +47,23 @@ export class LibroService {
     return librosAux;
   }
 
-  // tieneCalificacionAlta(libro: Libro, umbral: number): boolean {
-  //   return libro.valoracion >= umbral;
-  // }
 }
 
-export interface Libro {
-  id?: number;
-  nombre?: string; 
-  valoracion?: number; 
-  fecha?: Date; 
-  tipo?: string;
-  urlImagen?: string;
-  comentarios?: Comentario[];
-  usuario?: Usuario;
-  texto?: string;
-  genero?: GeneroConCantidad[];
-  descripcion?: string; // Nueva propiedad para la descripción del libro
+export interface Libro{
+  id?:number,
+  nombre?:string,
+  instrucciones?:string,
+  tipo?:string,
+  valoracion?:number,
+  urlImagen?:string,
+  comentarios?:Comentario[],
+  usuario?:Usuario,
+  generos?:GeneroConCantidad[]
 }
 
 export interface GeneroConCantidad {
-  id?: number;
+  id?:number,
   genero?: Genero;
-  cantidad?: number;
-  nombre?: string;
+  cantidad?:number,
+  nombre?: string
 }

@@ -1,69 +1,57 @@
 <div class="padre-form">
     <h1 class="title">Crea Tu Libro:</h1>
     <hr>
-    <form #fLibro="ngForm" class="form-estilo" (ngSubmit)="guardarLibro(fLibro)">
-        <!-- Portada y Título -->
-        <div class="top-section">
-            <ngx-dropzone class="portada-dropzone" (change)="onSelect($event)">
-                <ngx-dropzone-label>Arrastra tu portada aquí!</ngx-dropzone-label>
-                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of imagenes" [file]="f" [removable]="true" (removed)="onRemove(f)">
-                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-                </ngx-dropzone-image-preview>
-            </ngx-dropzone>
-            <div class="form-group group-libro">
-                <label class="label-libro" for="titulo">Título del Libro:</label>
-                <input type="text" class="form-control input-libro-largo" id="titulo" name="titulo" [(ngModel)]="libroNew.nombre" required />
-            </div>
+<form #fRece="ngForm" class="form-estilo" (ngSubmit)="guardarLibro(fRece)">
+    <div class="left-form">
+        <div class="form-group row group-libro">
+            <label class="label-libro" for="nombre">Nombre de la Libro:</label>
+            <input type="text" class="form-control input-libro-largo" id="nombre" name="nombre" [(ngModel)]="libroNew.nombre" required/>
+            
         </div>
-
-        <!-- Géneros y Autor -->
-        <div class="middle-section">
-            <div class="form-group group-libro">
-                <label style="font-weight: bold; margin-bottom: 15px;">Géneros:</label>
-                <form #fGenero="ngForm" class="form-genero" (ngSubmit)="agregarGenero(fGenero)" novalidate>
-                    <div class="form-group" style="flex-basis: 30%; min-width: 160px;">
-                        <select class="form-select" id="generoID" name="generoID" [(ngModel)]="generoID" required>
-                            <option value="" disabled selected>--Selecciona un género--</option>
-                            <option *ngFor="let generoSelect of generoAll" value="{{generoSelect.id}}">{{generoSelect.nombre}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group button-login">
-                        <button class="btn btn-secondary">Añadir</button>
-                    </div>
-                </form>
-                <p *ngIf="generoVacio">Error! Seleccione un género válido para añadir.</p>
-                <div class="vacio">
-                    <div class="card generos-card" *ngIf="generoSeleccionados.length > 0">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item lista-genero" *ngFor="let genero of generoSeleccionados">
-                                <p>{{genero.nombre}}</p>
-                                <button class="btn btn-danger" (click)="eliminarGenero(genero)">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
+        
+        <div class="form-group row">
+            <label style="font-weight: bold; margin-bottom: 15px;" for="pasos">Pasos a seguir:</label>
+            <textarea class="form-control input-pasos" style="resize: none;" type="text" placeholder="Describe los pasos a seguir para la realización de la Libro. (Hazlo usando frases concisas)" id="pasos" name="pasos" [(ngModel)]="libroNew.instrucciones" required ></textarea>
+        </div>
+    </div>
+    <div class="right-form">
+        <div class="form-group row">
+            <label style="font-weight: bold; margin-bottom: 15px;">Generos con cantidad (Genero, Cantidad y Unidad de medida):</label>
+            <form #f="ngForm" class="form-gene" (ngSubmit)="nuevoGeneConCantidad(f)" novalidate>
+                <div class="form-group" style="flex-basis: 30%; min-width: 160px;">
+                    <select class="form-select" id="geneID" name="geneID" [(ngModel)]="geneID" required>
+                        <option value="" disabled selected>--Selecciona un genero--</option>
+                        <option *ngFor=" let geneSelect of geneAll" value="{{geneSelect.id}}">{{geneSelect.nombre}}</option>
+                    </select>
+                </div>
+                
+                <div class="form-group button-login">
+                    <button class="btn btn-secondary">Añadir</button>
+                </div>
+            </form>
+            <p *ngIf="geneVacio">Error! Introduce completamente el genero que quieres añadir</p>
+            <div class="vacio">
+                <div class="card generos-card"*ngIf="geneConCantidadArray.length > 0">
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item lista-gene" *ngFor=" let geneCanti of geneConCantidadArray">
+                            
+                            <button class="btn btn-danger" (click)="eliminarGeneConCantidad(geneCanti)"><i class="fa-solid fa-trash-can"></i></button>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="form-group group-libro">
-                <label class="label-libro" for="autor">Autor:</label>
-                <input type="text" class="form-control input-libro" id="autor" name="autor" [(ngModel)]="libroNew.usuario" [readonly]="true" />
-            </div>
         </div>
-
-        <!-- Historia -->
-        <div class="bottom-section">
-            <div class="form-group group-libro">
-                <label class="label-libro" for="historia">Historia:</label>
-                <textarea class="form-control input-libro hoja-papel" id="historia" name="historia" [(ngModel)]="libroNew.descripcion" placeholder="Escribe tu historia aquí..." required></textarea>
-            </div>
-        </div>
-
-        <!-- Acciones -->
+        <ngx-dropzone (change)="onSelect($event)">
+            <ngx-dropzone-label>Arrastra tu imagen aquí!</ngx-dropzone-label>
+            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of imagenes" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+            </ngx-dropzone-image-preview>
+        </ngx-dropzone>
         <div class="actions-libro">
             <button class="btn btn-danger" (click)="goBack()">Cancelar</button>
             <button class="btn btn-primary" (click)="subirImagen()">Subir Imagen</button>
-            <button type="submit" class="btn btn-success" [disabled]="!imagenSubida">Crear Libro</button>
+            <button type="submit" class="btn btn-success" [disabled]="!imagenSubida">CREAR RECETA</button>
         </div>
-    </form>
+    </div>
+</form>
 </div>

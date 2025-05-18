@@ -15,7 +15,7 @@
                     <div>
                         <p><span *ngIf="!isLogged">{{libro.valoracion}} <i class="fa-regular fa-star"></i></span> 
                             ● {{libro.tipo}} <i class="fa-solid fa-plate-wheat"></i>
-                            ● {{libro.fecha | date}} <i class="fa-regular fa-calendar"></i> 
+
                             ● {{libro.usuario?.username}} <i class="fa-regular fa-user"></i> 
                         </p>
                     </div>
@@ -34,7 +34,7 @@
                     Géneros:
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item lista-ingre" *ngFor="let gen of libro.genero">
+                    <li class="list-group-item lista-ingre" *ngFor="let gen of libro.generos">
                         {{gen.cantidad}} de {{gen.nombre}}
                     </li>
                 </ul>

@@ -2,7 +2,7 @@
     <img [src]="libro?.urlImagen" class="card-img-top img-card" alt="{{libro?.nombre}}">
     <div class="card-body">
         <h2 class="card-title">{{libro?.nombre}}</h2>
-        <p class="card-text text-truncated">{{ (libro?.texto!.length>150)? (libro?.texto | slice:0:150)+'...':(libro?.texto) }}</p>
+        <p class="card-text text-truncated">{{ (libro?.instrucciones!.length>150)? (libro?.instrucciones | slice:0:150)+'...':(libro?.instrucciones) }}</p>
     </div>
     
     <div class="libro-boton">
