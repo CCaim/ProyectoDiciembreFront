@@ -57,8 +57,8 @@ export class BookFormComponent implements OnInit {
     if(this.imagenes[0]){
       const data = new FormData();
       data.append('file', this.imagenes[0]);
-      data.append('upload_preset', 'angular_espatula');
-      data.append('cloud_name', 'de411te3t');
+      data.append('upload_preset', 'angular_libritos');
+      data.append('cloud_name', 'doqx4i31m');
       this._cloudinaryService.cargarImagen(data)
       .then(response => response.json())
       .then(data => {
