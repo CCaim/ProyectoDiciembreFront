@@ -1,1 +1,31 @@
-<p>home works!</p>
+<section class="home-description">
+    <h1>Bienvenido a Libros Abiertos</h1>
+    <p>
+      Esta es una comunidad donde cualquier persona puede <strong>crear sus propios libros</strong> y compartirlos con el mundo, además de <strong>leer los libros de otros usuarios</strong> de cualquier temática: novelas, poesía, ciencia, fantasía, ¡lo que imagines!
+    </p>
+    <p>
+      Regístrate, empieza a escribir tu historia y descubre lo que otros tienen para contar.
+    </p>
+  </section>
+  
+  <section class="home-benefits">
+    <h2>¿Por qué unirte a Libros Abiertos?</h2>
+    <ul>
+      <li>✍️ Crea libros de cualquier género y temática.</li>
+      <li>🌐 Lee historias originales de otros usuarios.</li>
+      <li>🤝 Interactúa, comenta y recomienda tus lecturas favoritas.</li>
+      <li>⭐ Consigue seguidores y hazte conocer como autor/a.</li>
+    </ul>
+    <a><button routerLink="login" class="btn"><i class="fa-solid fa-right-to-bracket"></i> ENTRAR</button></a>
+  </section>
+  
+  <section class="home-carousel">
+    <h2>Libros recientes de la comunidad</h2>
+    <div class="carousel-books">
+      <div class="carousel-book" *ngFor="let libro of librosAleatorios">
+        <h3>{{ libro.titulo }}</h3>
+        <p class="carousel-author">Autor: {{ libro.autor }}</p>
+        <p class="carousel-description">{{ libro.descripcion }}</p>
+      </div>
+    </div>
+  </section>
