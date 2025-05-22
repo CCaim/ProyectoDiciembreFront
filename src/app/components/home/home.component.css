@@ -1,99 +1,48 @@
-:root {
-    --azul-cielo: #e3f2fd;
-    --azul-principal: #1976d2;
-    --azul-secundario: #1565c0;
-    --azul-claro: #bbdefb;
-    --azul-oscuro: #0d47a1;
-    --blanco: #fff;
-    --gris-texto: #304269;
-    --gris-suave: #e9f0fa;
+body, .home-root {
+    background: var(--iron);
+    color: var(--negro);
   }
   
-  body, .home-root {
-    background: var(--azul-cielo);
+  .home-description,
+  .home-benefits,
+  .home-carousel {
+    background: var(--bombay);
+    color: var(--negro);
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 24px 0 0 0;
+    box-shadow: none;
   }
   
-  /* Sección descripción */
-  .home-description {
-    background: var(--blanco);
-    padding: 2rem 1rem;
-    text-align: center;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 10px rgba(25, 118, 210, 0.07);
-  }
-  
-  .home-description h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--azul-principal);
-  }
-  
-  .home-description p {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-    color: var(--gris-texto);
-  }
-  
-  /* Sección beneficios */
-  .home-benefits {
-    background: var(--azul-claro);
-    padding: 2rem 1rem 1rem 1rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    box-shadow: 0 1px 8px rgba(21, 101, 192, 0.09);
-    text-align: center;
-  }
-  
-  .home-benefits h2 {
-    margin-bottom: 1rem;
-    color: var(--azul-secundario);
-  }
-  
-  .home-benefits ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 2rem;
-  }
-  
-  .home-benefits li {
-    margin: 0.7rem 0;
-    font-size: 1.15rem;
-    color: var(--azul-oscuro);
+  .home-description h1,
+  .home-benefits h2,
+  .home-carousel h2,
+  .home-description p,
+  .home-benefits li,
+  .carousel-book h3,
+  .carousel-author,
+  .carousel-description {
+    color: var(--abbey);
   }
   
   .unete-btn {
     display: inline-block;
-    background: linear-gradient(90deg, var(--azul-principal) 60%, var(--azul-secundario) 100%);
-    color: #fff;
+    background: var(--abbey);
+    color: var(--blanco);
     font-weight: bold;
     font-size: 1.07rem;
     padding: 0.85rem 2.5rem;
-    border: none;
+    border: 2px solid var(--sirocco);
     border-radius: 999px;
     cursor: pointer;
-    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
-    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.10);
     text-decoration: none;
     margin-bottom: 0.2rem;
+    transition: background 0.2s, color 0.2s;
   }
   .unete-btn:hover {
-    background: linear-gradient(90deg, var(--azul-secundario) 30%, var(--azul-principal) 100%);
-    transform: translateY(-2px) scale(1.04);
-  }
-  
-  /* Carrusel de libros */
-  .home-carousel {
-    padding: 2rem 1rem 4rem 1rem;
-    background: var(--blanco);
-    border-radius: 12px;
-    box-shadow: 0 1px 8px rgba(25, 118, 210, 0.05);
-  }
-  
-  .home-carousel h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: var(--azul-secundario);
+    background: var(--sirocco);
+    color: var(--iron);
   }
   
   .carousel-books {
@@ -101,35 +50,21 @@
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 0;
   }
   
   .carousel-book {
-    background: var(--gris-suave);
+    background: var(--oslo-gray);
     border-radius: 10px;
     padding: 1.2rem;
     min-width: 220px;
     max-width: 270px;
-    box-shadow: 0 2px 6px rgba(25, 118, 210, 0.09);
+    box-shadow: none;
     text-align: left;
     flex: 1 1 220px;
-    border: 1.5px solid var(--azul-claro);
-  }
-  
-  .carousel-book h3 {
-    font-size: 1.18rem;
-    margin-bottom: 0.6rem;
-    color: var(--azul-principal);
-  }
-  
-  .carousel-author {
-    font-size: 0.98rem;
-    color: var(--azul-secundario);
-    margin-bottom: 0.5rem;
-  }
-  
-  .carousel-description {
-    font-size: 1rem;
-    color: var(--gris-texto);
+    border: 2px solid var(--bombay);
+    margin: 0;
+    color: var(--blanco);
   }
   
   @media (max-width: 900px) {
@@ -141,6 +76,6 @@
       font-size: 2rem;
     }
     .home-benefits, .home-description, .home-carousel {
-      padding: 1rem 0.5rem;
+      padding: 1rem 0.5rem 0 0.5rem;
     }
   }
