@@ -23,6 +23,7 @@ import { AdminLibrosComponent } from './components/admin/admin-libros/admin-libr
 import { BookEditComponent } from './components/book-edit/book-edit.component';
 import { BookCardComponent } from './components/shared/book-card/book-card.component';
 import { BookComponent } from './components/book/book.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { BookComponent } from './components/book/book.component';
     AdminLibrosComponent,
     BookEditComponent,
     BookCardComponent,
-    BookComponent
+    BookComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

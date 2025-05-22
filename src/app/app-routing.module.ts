@@ -15,6 +15,8 @@ import { BookEditComponent } from './components/book-edit/book-edit.component';
 // <-- Agrega el import del componente de detalle de libro -->
 import { BookComponent } from './components/book/book.component';
 
+import { HomeComponent } from './components/home/home.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
@@ -30,7 +32,9 @@ const routes: Routes = [
 
   { path: 'libro/:id', component: BookComponent },
 
-  { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  { path: '**', pathMatch: 'full', redirectTo: 'home' },
+
+  {path: 'home', component: HomeComponent},
 ];
 
 @NgModule({
